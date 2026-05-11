@@ -165,6 +165,16 @@ body.dark-mode .btn-outline:hover {
     color: #ffffff !important;
 }
 
+body.dark-mode .cta-banner-primary .btn-outline {
+    border-color: var(--white) !important;
+    color: var(--white) !important;
+}
+
+body.dark-mode .cta-banner-primary .btn-outline:hover {
+    background: var(--white) !important;
+    color: var(--primary) !important;
+}
+
 body.dark-mode .btn-white {
     background: #ffffff !important;
     color: var(--primary) !important;

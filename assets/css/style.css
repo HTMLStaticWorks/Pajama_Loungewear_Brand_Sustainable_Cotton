@@ -736,6 +736,17 @@ body.dark-mode .feature-list li {
 @media (max-width: 1200px) {
     .feature-list-container {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-list {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        margin: 30px auto;
+        width: fit-content;
     }
 }
 
@@ -1243,6 +1254,16 @@ body.dark-mode .footer-bottom {
     color: var(--primary);
 }
 
+.cta-banner-primary .btn-outline {
+    border-color: var(--white) !important;
+    color: var(--white) !important;
+}
+
+.cta-banner-primary .btn-outline:hover {
+    background: var(--white) !important;
+    color: var(--primary) !important;
+}
+
 /* Comparison Table */
 .comparison-container {
     overflow-x: auto;
@@ -1274,7 +1295,7 @@ body.dark-mode .footer-bottom {
 .comparison-table td:first-child {
     text-align: left;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--primary);
 }
 
 /* Testimonials */
@@ -1467,7 +1488,7 @@ body.dark-mode .user-meta h4,
 body.dark-mode .faq-question,
 body.dark-mode .comparison-table th:first-child,
 body.dark-mode .comparison-table td:first-child {
-    color: var(--white);
+    color: var(--primary) !important;
 }
 
 /* Responsive Overrides */
@@ -1577,18 +1598,18 @@ body.dark-mode .comparison-table td:first-child {
 
     /* Tablet Grid Alignment Fixes (Up to 1200px) */
     @media (max-width: 1200px) {
-        .card-grid, .testimonial-grid, .pricing-grid, .team-grid {
+        .card-grid, .testimonial-grid, .pricing-grid, .team-grid, .grid-3 {
             display: grid !important;
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 30px !important;
             align-items: stretch !important;
         }
 
-        .item-card, .testimonial-card, .pricing-card, .team-card {
+        .item-card, .testimonial-card, .pricing-card, .team-card, .contact-info-card {
             display: flex !important;
             flex-direction: column !important;
             height: 100% !important;
-            min-height: 480px !important;
+            min-height: auto !important;
             width: 100% !important;
             max-width: none !important;
             margin: 0 !important;
@@ -1599,7 +1620,8 @@ body.dark-mode .comparison-table td:first-child {
         .card-grid > *:last-child:nth-child(odd),
         .testimonial-grid > *:last-child:nth-child(odd),
         .pricing-grid > *:last-child:nth-child(odd),
-        .team-grid > *:last-child:nth-child(odd) {
+        .team-grid > *:last-child:nth-child(odd),
+        .grid-3 > *:last-child:nth-child(odd) {
             grid-column: 1 / span 2 !important;
             width: calc(50% - 15px) !important;
             margin: 0 auto !important;
@@ -1621,9 +1643,9 @@ body.dark-mode .comparison-table td:first-child {
 }
 
 @media (max-width: 768px) {
-    /* Preserve 2-column layout for grids on larger mobile/tablets */
+    /* Stack items one-by-one on mobile */
     .card-grid, .testimonial-grid, .pricing-grid, .team-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: 1fr !important;
     }
     .hero h1 { 
         font-size: 2.2rem; 
@@ -1917,4 +1939,50 @@ body.dark-mode .auth-actions .icon-btn {
 .cta-banner-primary .btn-outline:hover {
     background: var(--white) !important;
     color: var(--primary) !important;
+}
+
+/* Final Mobile Grid Override - Ensures 1-column on mobile */
+@media (max-width: 768px) {
+    .card-grid, 
+    .testimonial-grid, 
+    .pricing-grid, 
+    .team-grid,
+    .category-grid,
+    .care-grid,
+    .shop-filters,
+    .grid-3 {
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .item-card, 
+    .testimonial-card, 
+    .pricing-card, 
+    .team-card,
+    .category-card,
+    .care-grid > div,
+    .filter-dropdown,
+    .grid-3 > div,
+    .value-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 20px 0 !important;
+    }
+
+    /* Reset tablet centering widths for mobile */
+    .card-grid > *:last-child:nth-child(odd),
+    .testimonial-grid > *:last-child:nth-child(odd),
+    .pricing-grid > *:last-child:nth-child(odd),
+    .team-grid > *:last-child:nth-child(odd),
+    .grid-3 > *:last-child:nth-child(odd) {
+        width: 100% !important;
+        margin: 0 0 20px 0 !important;
+    }
+
+    .filter-btn {
+        width: 100% !important;
+        justify-content: space-between !important;
+    }
 }
