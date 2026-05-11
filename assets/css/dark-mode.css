@@ -51,8 +51,7 @@ body.dark-mode h5,
 body.dark-mode h6,
 body.dark-mode p,
 body.dark-mode span,
-body.dark-mode a,
-body.dark-mode i,
+body.dark-mode a:not(.btn),
 body.dark-mode li {
     color: #ffffff !important;
 }
@@ -126,6 +125,15 @@ body.dark-mode textarea {
 body.dark-mode .btn-login {
     border-color: var(--primary) !important;
     color: var(--primary) !important;
+    background: transparent !important;
+}
+
+body.dark-mode .btn-login:hover,
+body.dark-mode .btn-primary,
+body.dark-mode #backToTop,
+body.dark-mode .social-icon {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
 }
 
 body.dark-mode .toggle-btn {
@@ -154,13 +162,31 @@ body.dark-mode .btn-outline {
 
 body.dark-mode .btn-outline:hover {
     background: var(--primary) !important;
-    color: white !important;
+    color: #ffffff !important;
 }
 
-/* Icon colors in sections */
+body.dark-mode .btn-white {
+    background: #ffffff !important;
+    color: var(--primary) !important;
+    border-color: #ffffff !important;
+}
+
+body.dark-mode .btn-white:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+/* Icon colors in sections - ensure visibility on primary backgrounds */
 body.dark-mode i.fas,
 body.dark-mode i.fab {
-    color: var(--primary) !important; 
+    color: var(--primary); 
+}
+
+body.dark-mode .btn-primary i,
+body.dark-mode .btn-login:hover i,
+body.dark-mode #backToTop i,
+body.dark-mode .social-icon i {
+    color: #ffffff !important;
 }
 
 /* Testimonials Dark Mode */

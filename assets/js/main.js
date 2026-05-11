@@ -145,4 +145,24 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     });
+
+    // 9. Shop Filter Dropdowns
+    const filterDropdowns = document.querySelectorAll('.filter-dropdown');
+    
+    filterDropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.filter-btn');
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Close other dropdowns
+            filterDropdowns.forEach(d => {
+                if (d !== dropdown) d.classList.remove('active');
+            });
+            dropdown.classList.toggle('active');
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+        filterDropdowns.forEach(d => d.classList.remove('active'));
+    });
 });

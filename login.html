@@ -40,7 +40,7 @@
         .form-group input { width: 100%; padding: 16px 20px; border-radius: 15px; border: 1px solid #eee; background: #fdfdfd; outline: none; transition: var(--transition); }
         .form-group input:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.1); }
         
-        .password-toggle { position: absolute; right: 20px; top: 45px; cursor: pointer; color: #aaa; transition: var(--transition); }
+        .password-toggle { position: absolute; right: 20px; top: 50px; cursor: pointer; color: #aaa; transition: var(--transition); }
         .password-toggle:hover { color: var(--primary); }
 
         .auth-options { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; font-size: 0.85rem; }
@@ -53,12 +53,19 @@
         .social-btn:hover { background: var(--bg-light); border-color: var(--primary); color: var(--primary); transform: translateY(-5px); }
 
         .auth-btn { width: 100%; padding: 16px; font-size: 1rem; }
+
+        @media (max-width: 480px) {
+            .auth-card { padding: 40px 25px; }
+            .auth-options { font-size: 0.75rem; }
+            .checkbox-group { gap: 5px; }
+            .auth-options a { white-space: nowrap; }
+        }
     </style>
 </head>
 <body style="position: relative;">
-    <div style="position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000;">
-        <button class="icon-btn theme-toggle" style="background: white;"><i class="fas fa-moon"></i></button>
-        <button class="icon-btn rtl-toggle" style="background: white; font-size: 0.8rem; font-weight: 700; width: auto; padding: 0 15px;">RTL</button>
+    <div class="auth-actions">
+        <button class="icon-btn theme-toggle"><i class="fas fa-moon"></i></button>
+        <button class="icon-btn rtl-toggle">RTL</button>
     </div>
     <div class="auth-card">
         <a href="index.html" class="logo-brand" style="justify-content: center; margin-bottom: 40px; font-size: 2.2rem;">
