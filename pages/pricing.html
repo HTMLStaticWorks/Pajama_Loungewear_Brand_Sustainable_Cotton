@@ -51,7 +51,7 @@
     </header>
 
     <!-- 1. Hero Section -->
-    <section class="hero" style="background-image: url('https://images.pexels.com/photos/12191199/pexels-photo-12191199.jpeg'); min-height: 40vh;">
+    <section class="hero" style="background-image: url('https://images.pexels.com/photos/12191199/pexels-photo-12191199.jpeg'); min-height: 35vh;">
         <div class="hero-content reveal-up">
             <h1>Elevate Your Rest</h1>
             <p>Choose a membership plan tailored to your lifestyle and comfort needs.</p>
@@ -258,7 +258,7 @@
                 <h2 style="color: var(--white); margin-bottom: 20px;">Ready for Your Best Night's Sleep?</h2>
                 <p style="opacity: 0.9; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Join over 10,000 women who have transformed their evenings with Lumiere.</p>
                 <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <a href="../signup.html" class="btn" style="background: var(--white); color: var(--primary);">Join the Circle Now</a>
+                    <a href="../signup.html" class="btn btn-white">Join the Circle Now</a>
                     <a href="shop.html" class="btn btn-outline">Explore the Shop</a>
                 </div>
             </div>
@@ -316,11 +316,21 @@
 
     <script src="../assets/js/main.js"></script>
     <script>
-        // Simple Accordion Toggle
+        // Professional Accordion Toggle
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => {
                 const item = q.parentElement;
-                item.classList.toggle('active');
+                const wasActive = item.classList.contains('active');
+                
+                // Close all other items for a clean accordion effect
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // If it wasn't open, open it
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
             });
         });
     </script>

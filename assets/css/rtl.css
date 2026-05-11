@@ -20,7 +20,7 @@
     transform: translateX(100px);
 }
 
-[dir="rtl"] .reveal-left.active {
+[dir="rtl"] .reveal-left.revealed {
     transform: translateX(0);
 }
 

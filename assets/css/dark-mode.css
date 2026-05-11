@@ -4,13 +4,14 @@ body.dark-mode {
     --bg-dark: #000000;
     --text-dark: #ffffff;
     --text-light: #cccccc;
+    --primary-light: #000000;
     --glass: rgba(0, 0, 0, 0.8);
     background-color: #000000 !important;
     color: #ffffff !important;
 }
 
 /* Structural Elements */
-body.dark-mode section,
+body.dark-mode section:not(.hero),
 body.dark-mode header,
 body.dark-mode footer,
 body.dark-mode .bg-alt,
@@ -18,16 +19,27 @@ body.dark-mode .bg-accent {
     background-color: #000000 !important;
     background: #000000 !important;
     color: #ffffff !important;
-    border-bottom: none !important; /* Remove section separators */
+    border-bottom: none !important;
+}
+
+body.dark-mode .hero::before {
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker overlay in dark mode */
 }
 
 /* Card Elements */
 body.dark-mode .item-card,
 body.dark-mode .testimonial-card,
 body.dark-mode .pricing-card,
-body.dark-mode .value-card {
+body.dark-mode .value-card,
+body.dark-mode .comparison-container {
     background: #111111 !important;
     border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+body.dark-mode .comparison-table th, 
+body.dark-mode .comparison-table td {
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+}
     box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
 }
 

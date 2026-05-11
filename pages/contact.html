@@ -47,7 +47,7 @@
     </header>
 
     <!-- 1. Hero -->
-    <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=1920'); min-height: 40vh;">
+    <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=1920'); min-height: 35vh;">
         <div class="hero-content reveal-up">
             <h1>Get in Touch</h1>
             <p>We're here to help you find your perfect rest.</p>
@@ -55,53 +55,45 @@
     </section>
 
     <!-- 2. Info -->
-    <section>
+    <section class="no-bottom-padding">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center;">
-                <div class="reveal-up" style="padding: 40px; background: white; border-radius: 20px; box-shadow: var(--shadow); transition: var(--transition);">
-                    <i class="fas fa-envelope" style="font-size: 2rem; color: var(--primary);"></i>
-                    <h4 style="margin-top: 15px;">Email Us</h4>
-                    <p style="color: var(--primary); font-weight: 500;">hello@lumieresleep.com</p>
+            <div class="grid-3">
+                <div class="contact-info-card reveal-up">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email Us</h4>
+                    <p>hello@lumieresleep.com</p>
                 </div>
-                <div class="reveal-up" style="padding: 40px; background: white; border-radius: 20px; box-shadow: var(--shadow); transition: var(--transition);">
-                    <i class="fas fa-phone" style="font-size: 2rem; color: var(--primary);"></i>
-                    <h4 style="margin-top: 15px;">Call Us</h4>
-                    <p style="color: var(--primary); font-weight: 500;">+1 (888) 123-4567</p>
+                <div class="contact-info-card reveal-up">
+                    <i class="fas fa-phone"></i>
+                    <h4>Call Us</h4>
+                    <p>+1 (888) 123-4567</p>
                 </div>
-                <div class="reveal-up" style="padding: 40px; background: white; border-radius: 20px; box-shadow: var(--shadow); transition: var(--transition);">
-                    <i class="fas fa-location-dot" style="font-size: 2rem; color: var(--primary);"></i>
-                    <h4 style="margin-top: 15px;">Studio</h4>
-                    <p style="color: var(--primary); font-weight: 500;">123 Serenity Lane, NY</p>
+                <div class="contact-info-card reveal-up">
+                    <i class="fas fa-location-dot"></i>
+                    <h4>Studio</h4>
+                    <p>123 Serenity Lane, NY</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 3. Message Form -->
-    <section style="background: var(--bg-light);">
+    <section style="background: var(--bg-light); padding-top: 0;">
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto;" class="reveal-up">
                 <div class="section-title"><h2>Send a Message</h2></div>
                 <form class="grid-2" style="gap: 20px;">
-                    <input type="text" placeholder="Name" style="padding: 15px; border-radius: 10px; border: 1px solid #ddd; outline: none;">
-                    <input type="email" placeholder="Email" style="padding: 15px; border-radius: 10px; border: 1px solid #ddd; outline: none;">
-                    <textarea placeholder="Your Message" style="grid-column: span 2; padding: 15px; border-radius: 10px; border: 1px solid #ddd; height: 150px; outline: none;"></textarea>
-                    <button class="btn btn-primary" style="grid-column: span 2; padding: 15px;">Send Message</button>
+                    <input type="text" placeholder="Name" class="form-control" required>
+                    <input type="email" placeholder="Email" class="form-control" required>
+                    <input type="tel" placeholder="Phone Number" class="form-control">
+                    <input type="text" placeholder="Subject" class="form-control">
+                    <textarea placeholder="Your Message" class="form-control" style="grid-column: span 2; height: 150px;" required></textarea>
+                    <button type="submit" class="btn btn-primary" style="grid-column: span 2; padding: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- 4. FAQ Shortcut -->
-    <section>
-        <div class="container text-center" style="text-align: center;">
-            <div class="reveal-up">
-                <h2>Quick Answers</h2>
-                <p style="margin: 20px 0 30px;">Your question might already be answered in our FAQ.</p>
-                <a href="faq.html" class="btn btn-primary">View FAQs</a>
-            </div>
-        </div>
-    </section>
 
 
     <!-- 6. Original Map -->
