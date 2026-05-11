@@ -103,14 +103,13 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row; /* Force LTR by default */
+    gap: 30px;
 }
 
 .logo-brand {
     display: flex;
     align-items: center;
     gap: 12px;
-    flex-direction: row; /* Force LTR by default */
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-dark);
@@ -128,7 +127,6 @@ body.dark-mode .logo-brand {
 .nav-menu ul {
     display: flex;
     gap: 30px;
-    flex-direction: row; /* Force LTR by default */
 }
 
 .nav-menu ul li a {
@@ -326,6 +324,8 @@ body.dark-mode .discover-link {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
+    z-index: 100;
 }
 
 .filter-dropdown {
@@ -430,6 +430,13 @@ body.dark-mode .dropdown-content a:hover {
     padding-top: var(--header-height);
 }
 
+/* Inner Page Hero Adjustments */
+@media (min-width: 769px) {
+    .inner-hero .hero-content {
+        padding-top: 50px;
+    }
+}
+
 .feature-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -443,11 +450,11 @@ body.dark-mode .dropdown-content a:hover {
     gap: 40px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .feature-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        text-align: center !important;
     }
 }
 
@@ -726,7 +733,7 @@ body.dark-mode .feature-list li {
     font-size: 1rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .feature-list-container {
         text-align: center;
     }
@@ -1263,6 +1270,7 @@ body.dark-mode .footer-bottom {
     color: var(--primary);
 }
 
+.comparison-table th:first-child,
 .comparison-table td:first-child {
     text-align: left;
     font-weight: 600;
@@ -1457,12 +1465,13 @@ body.dark-mode .faq-item {
 body.dark-mode .price,
 body.dark-mode .user-meta h4,
 body.dark-mode .faq-question,
+body.dark-mode .comparison-table th:first-child,
 body.dark-mode .comparison-table td:first-child {
     color: var(--white);
 }
 
 /* Responsive Overrides */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .container {
         width: 100% !important;
         max-width: 100% !important;
@@ -1520,7 +1529,7 @@ body.dark-mode .comparison-table td:first-child {
         display: flex;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
         .header-actions .theme-toggle,
         .header-actions .rtl-toggle,
         .header-actions .btn-login {
@@ -1566,40 +1575,55 @@ body.dark-mode .comparison-table td:first-child {
 
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 
-    /* Center last odd item in tablet grid */
-    @media (max-width: 1024px) {
-        .card-grid, .testimonial-grid, .pricing-grid {
+    /* Tablet Grid Alignment Fixes (Up to 1200px) */
+    @media (max-width: 1200px) {
+        .card-grid, .testimonial-grid, .pricing-grid, .team-grid {
+            display: grid !important;
             grid-template-columns: repeat(2, 1fr) !important;
-            gap: 20px !important;
+            gap: 30px !important;
+            align-items: stretch !important;
         }
-        .item-card, .testimonial-card, .pricing-card {
+
+        .item-card, .testimonial-card, .pricing-card, .team-card {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+            min-height: 480px !important;
             width: 100% !important;
             max-width: none !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
         }
-        /* Center last item if it's the only one in its row */
+
+        /* Center last odd item (3rd card) */
         .card-grid > *:last-child:nth-child(odd),
         .testimonial-grid > *:last-child:nth-child(odd),
-        .pricing-grid > *:last-child:nth-child(odd) {
-            grid-column: 1 / span 2;
-            width: calc(50% - 10px) !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
+        .pricing-grid > *:last-child:nth-child(odd),
+        .team-grid > *:last-child:nth-child(odd) {
+            grid-column: 1 / span 2 !important;
+            width: calc(50% - 15px) !important;
+            margin: 0 auto !important;
         }
-        .item-img {
-            height: 350px !important;
+
+        /* Consistent Image Heights */
+        .item-img, .team-card img {
+            height: 300px !important;
+            width: 100% !important;
+            object-fit: cover !important;
         }
     }
 }
 
 /* Mobile Actions Visibility */
 .mobile-nav-actions { display: none; }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .mobile-nav-actions { display: flex; }
 }
 
 @media (max-width: 768px) {
-    .card-grid, .testimonial-grid, .pricing-grid {
-        grid-template-columns: 1fr !important;
+    /* Preserve 2-column layout for grids on larger mobile/tablets */
+    .card-grid, .testimonial-grid, .pricing-grid, .team-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
     }
     .hero h1 { 
         font-size: 2.2rem; 
@@ -1634,14 +1658,15 @@ body.dark-mode .comparison-table td:first-child {
         padding: 0 10px;
     }
     .cta-btns {
-        flex-direction: row !important;
-        gap: 10px !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        align-items: center;
     }
     .cta-btns .btn {
-        flex: 1;
-        font-size: 0.65rem !important;
-        padding: 12px 10px !important;
-        white-space: nowrap;
+        width: 100%;
+        max-width: 300px;
+        font-size: 0.8rem !important;
+        padding: 12px 20px !important;
     }
 
     #backToTop { bottom: 20px; right: 20px; width: 45px; height: 45px; }
@@ -1673,20 +1698,23 @@ body.dark-mode .comparison-table td:first-child {
 }
 
 /* RTL Support */
-[dir="rtl"] .nav-links {
+[dir="rtl"] .nav-menu ul {
     flex-direction: row-reverse;
     gap: 40px;
 }
 
 [dir="rtl"] .header-actions {
     gap: 20px !important;
+    margin-left: 0 !important;
+    margin-right: 30px !important;
 }
 
 [dir="rtl"] .logo-brand {
-    margin-left: 40px !important;
+    margin-right: 0 !important;
+    margin-left: 50px !important;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     [dir="rtl"] .logo-brand {
         margin-left: 0 !important;
     }
@@ -1722,7 +1750,7 @@ body.dark-mode .form-card {
     margin: 50px 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .care-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -1772,7 +1800,7 @@ body.dark-mode .team-card {
     box-shadow: 0 15px 50px rgba(0,0,0,0.2);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .team-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -1810,7 +1838,7 @@ body.dark-mode .team-card {
     color: var(--primary);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .feature-list-container {
         text-align: center;
         max-width: 450px;
@@ -1833,6 +1861,11 @@ body.dark-mode .team-card {
     display: flex;
     gap: 15px;
     z-index: 1000;
+}
+
+[dir="rtl"] .auth-actions {
+    right: auto;
+    left: 30px;
 }
 
 .auth-actions .icon-btn {
@@ -1875,3 +1908,13 @@ body.dark-mode .auth-actions .icon-btn {
     }
 }
 
+/* CTA Banner Primary Override (Ensures visibility on gold backgrounds) */
+.cta-banner-primary .btn-outline {
+    border-color: var(--white) !important;
+    color: var(--white) !important;
+}
+
+.cta-banner-primary .btn-outline:hover {
+    background: var(--white) !important;
+    color: var(--primary) !important;
+}
