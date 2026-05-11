@@ -1583,5 +1583,26 @@ body.dark-mode .comparison-table td:first-child {
     font-size: 1.1rem;
     max-width: 600px;
     margin: 0 auto 30px;
+}
+
+/* RTL Support */
+[dir="rtl"] .nav-links {
+    flex-direction: row-reverse;
+    gap: 40px;
+}
+
+[dir="rtl"] .header-actions {
+    gap: 20px !important;
+}
+
+[dir="rtl"] .logo-brand {
+    margin-left: 40px !important;
+}
+
+@media (max-width: 1024px) {
+    [dir="rtl"] .logo-brand {
+        margin-left: 0 !important;
+    }
+}
     color: rgba(255,255,255,0.9) !important;
 }

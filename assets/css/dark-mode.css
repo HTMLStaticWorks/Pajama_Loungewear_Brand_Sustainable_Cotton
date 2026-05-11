@@ -3,7 +3,7 @@ body.dark-mode {
     --bg-light: #000000; /* Pure Black Background */
     --bg-dark: #000000;
     --text-dark: #ffffff;
-    --text-light: #cccccc;
+    --text-light: #ffffff;
     --primary-light: #000000;
     --glass: rgba(0, 0, 0, 0.8);
     background-color: #000000 !important;
@@ -78,6 +78,43 @@ body.dark-mode .logo-brand {
 
 body.dark-mode footer {
     border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Authentication Pages */
+body.dark-mode .auth-card {
+    background: #111111 !important;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.5) !important;
+}
+
+body.dark-mode .form-group input {
+    background: #1a1a1a !important;
+    border-color: #333 !important;
+    color: white !important;
+}
+
+body.dark-mode .form-group input:focus {
+    background: #222 !important;
+    border-color: var(--primary) !important;
+}
+
+body.dark-mode .social-login {
+    border-top: 1px solid #333 !important;
+}
+
+body.dark-mode .social-btn {
+    border-color: #333 !important;
+    background: #1a1a1a !important;
+}
+
+body.dark-mode .social-btn:hover {
+    border-color: var(--primary) !important;
+    background: #222 !important;
+}
+
+body.dark-mode .theme-toggle,
+body.dark-mode .rtl-toggle {
+    background: #1a1a1a !important;
+    border-color: #333 !important;
 }
 
 body.dark-mode input, 
