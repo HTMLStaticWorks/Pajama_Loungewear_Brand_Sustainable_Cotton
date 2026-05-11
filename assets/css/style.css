@@ -473,7 +473,7 @@ body.dark-mode .dropdown-content a:hover {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.5); /* Enhanced Readability Overlay */
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%); /* Lighter gradient for better image visibility */
     z-index: 1;
 }
 
