@@ -15,6 +15,9 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
 
+    <!-- Scripts -->
+    <script src="assets/js/theme-init.js"></script>
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
@@ -92,8 +95,7 @@
                     <div class="item-info">
                         <h3>Cotton Breeze</h3>
                         <p>Lightweight sets for warmer nights.</p>
-                        <a href="pages/collection-details.html"
-                            style="text-decoration: underline; font-weight: 700;">Discover</a>
+                        <a href="pages/collection-details.html" class="discover-link">Discover</a>
                     </div>
                 </div>
                 <div class="item-card reveal-up">
@@ -102,8 +104,7 @@
                     <div class="item-info">
                         <h3>Cozy Knits</h3>
                         <p>Plush textures for ultimate warmth.</p>
-                        <a href="pages/collection-details.html"
-                            style="text-decoration: underline; font-weight: 700;">Discover</a>
+                        <a href="pages/collection-details.html" class="discover-link">Discover</a>
                     </div>
                 </div>
                 <div class="item-card reveal-up">
@@ -112,8 +113,7 @@
                     <div class="item-info">
                         <h3>Silk-Soft Modal</h3>
                         <p>The perfect blend of nature and luxury.</p>
-                        <a href="pages/collection-details.html"
-                            style="text-decoration: underline; font-weight: 700;">Discover</a>
+                        <a href="pages/collection-details.html" class="discover-link">Discover</a>
                     </div>
                 </div>
             </div>
@@ -126,12 +126,10 @@
             <div class="feature-grid">
                 <div class="reveal-left"><img
                         src="https://images.pexels.com/photos/11585380/pexels-photo-11585380.jpeg"
-                        style="border-radius: 40px; box-shadow: var(--shadow); width: 100%; height: 400px; object-fit: cover;"></div>
+                        style="border-radius: 40px; box-shadow: var(--shadow); width: 100%; height: 320px; object-fit: cover;"></div>
                 <div class="reveal-up">
                     <h2>Nature's Softest Secret</h2>
-                    <p>We use 100% GOTS certified organic cotton, grown without harmful pesticides. It's not just soft
-                        on your skin; it's soft on the earth. Our zero-waste manufacturing ensures every fiber is
-                        respected.</p>
+                    <p>We use 100% GOTS certified organic cotton, grown without harmful pesticides. It's not just soft on your skin; it's soft on the earth. Our zero-waste manufacturing ensures every fiber is respected. Beyond comfort, we prioritize durability. Our unique weave creates a fabric that gets softer with every wash, designed to last for years.</p>
                     <a href="pages/fabric-story.html" class="btn btn-primary" style="margin-top: 30px;">Read Fabric
                         Story</a>
                 </div>
@@ -182,16 +180,28 @@
             <div class="section-title reveal-up">
                 <h2>Lumiere Stories</h2>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div class="testimonial-grid">
                 <div class="reveal-up testimonial-card">
-                    <p style="font-style: italic; font-size: 1.1rem;">"The most comfortable pajamas I've ever worn. The
-                        organic cotton feels like a second skin."</p>
-                    <h5>- Amelia J.</h5>
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p>"The most comfortable pajamas I've ever worn. The organic cotton feels like a second skin."</p>
+                    <div class="user-info">
+                        <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Amelia J.">
+                        <div class="user-meta">
+                            <h4>Amelia J.</h4>
+                            <span>Verified Customer</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="reveal-up testimonial-card">
-                    <p style="font-style: italic; font-size: 1.1rem;">"I love that I can sleep peacefully knowing my
-                        loungewear is sustainable and ethical."</p>
-                    <h5>- Sophia R.</h5>
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p>"I love that I can sleep peacefully knowing my loungewear is sustainable and ethical."</p>
+                    <div class="user-info">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Sophia R.">
+                        <div class="user-meta">
+                            <h4>Sophia R.</h4>
+                            <span>Loyal Member</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

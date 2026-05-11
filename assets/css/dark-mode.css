@@ -1,50 +1,130 @@
 /* Dark Mode Overrides */
 body.dark-mode {
-    --bg-light: #121212;
-    --text-dark: #eeeeee;
-    --text-light: #bbbbbb;
-    --glass: rgba(0, 0, 0, 0.7);
-    background-color: var(--bg-light);
-    color: var(--text-dark);
+    --bg-light: #000000; /* Pure Black Background */
+    --bg-dark: #000000;
+    --text-dark: #ffffff;
+    --text-light: #cccccc;
+    --glass: rgba(0, 0, 0, 0.8);
+    background-color: #000000 !important;
+    color: #ffffff !important;
 }
 
-body.dark-mode .item-card {
-    background: #1e1e1e;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+/* Structural Elements */
+body.dark-mode section,
+body.dark-mode header,
+body.dark-mode footer,
+body.dark-mode .bg-alt,
+body.dark-mode .bg-accent {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-bottom: none !important; /* Remove section separators */
+}
+
+/* Card Elements */
+body.dark-mode .item-card,
+body.dark-mode .testimonial-card,
+body.dark-mode .pricing-card,
+body.dark-mode .value-card {
+    background: #111111 !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+}
+
+/* Ensure all text elements are white */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode a,
+body.dark-mode i,
+body.dark-mode li {
+    color: #ffffff !important;
+}
+
+/* Links and Interactive Elements */
+body.dark-mode a.discover-link {
+    color: #ffffff !important;
+}
+
+body.dark-mode a.discover-link:hover {
+    color: var(--primary) !important;
 }
 
 body.dark-mode .nav-menu {
-    background: #121212;
+    background: #000000 !important;
 }
 
 body.dark-mode .icon-btn, 
 body.dark-mode .logo-brand {
-    color: var(--white);
-}
-
-body.dark-mode .nav-menu ul li a::after {
-    background: var(--primary);
+    color: #ffffff !important;
 }
 
 body.dark-mode footer {
-    background: #080808;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 body.dark-mode input, 
 body.dark-mode textarea {
-    background: #1e1e1e;
-    color: white;
-    border-color: #333;
+    background: #111111 !important;
+    color: #ffffff !important;
+    border: 1px solid #333 !important;
 }
 
 body.dark-mode .btn-login {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
 }
 
 body.dark-mode .toggle-btn {
-    color: var(--text-main);
+    color: #ffffff !important;
+}
 
 body.dark-mode .container {
-    background: transparent;
+    background: transparent !important;
+}
+
+body.dark-mode .section-title h2::after {
+    background: var(--primary) !important;
+}
+
+/* CTA Visibility */
+body.dark-mode .cta-box {
+    background: #111111 !important;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+body.dark-mode .btn-outline {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+    background: transparent !important;
+}
+
+body.dark-mode .btn-outline:hover {
+    background: var(--primary) !important;
+    color: white !important;
+}
+
+/* Icon colors in sections */
+body.dark-mode i.fas,
+body.dark-mode i.fab {
+    color: var(--primary) !important; 
+}
+
+/* Testimonials Dark Mode */
+body.dark-mode .testimonial-card {
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+body.dark-mode .user-meta h4 {
+    color: var(--white);
+}
+
+body.dark-mode .user-meta span {
+    color: rgba(255,255,255,0.6);
 }

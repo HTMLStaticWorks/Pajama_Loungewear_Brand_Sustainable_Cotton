@@ -3,9 +3,8 @@
     text-align: right;
 }
 
-[dir="rtl"] .logo-brand {
-    flex-direction: row-reverse;
-}
+/* Flex containers automatically flip in RTL when using row, 
+   so we don't need row-reverse unless we want to UN-flip them. */
 
 [dir="rtl"] .nav-menu {
     right: auto;
@@ -15,14 +14,6 @@
 [dir="rtl"] .nav-menu.active {
     right: auto;
     left: 0;
-}
-
-[dir="rtl"] .header-actions {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .hero-btns {
-    flex-direction: row-reverse;
 }
 
 [dir="rtl"] .reveal-left {

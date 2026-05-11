@@ -35,12 +35,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Theme Toggle (Light/Dark)
     const themeToggles = document.querySelectorAll('.theme-toggle');
+    
+    // Initial sync
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    const icons = document.querySelectorAll('.theme-toggle i');
+    icons.forEach(icon => {
+        if (currentTheme === 'dark') {
+            icon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            icon.classList.replace('fa-sun', 'fa-moon');
+        }
+    });
+
     themeToggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const icons = document.querySelectorAll('.theme-toggle i');
-            icons.forEach(icon => {
-                if (document.body.classList.contains('dark-mode')) {
+            const isDark = document.body.classList.contains('dark-mode');
+            const newTheme = isDark ? 'light' : 'dark';
+            
+            if (newTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+            
+            localStorage.setItem('theme', newTheme);
+            
+            // Sync Icons
+            const allIcons = document.querySelectorAll('.theme-toggle i');
+            allIcons.forEach(icon => {
+                if (newTheme === 'dark') {
                     icon.classList.replace('fa-moon', 'fa-sun');
                 } else {
                     icon.classList.replace('fa-sun', 'fa-moon');
@@ -53,8 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const rtlToggles = document.querySelectorAll('.rtl-toggle');
     rtlToggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
-            const currentDir = document.documentElement.dir;
-            document.documentElement.dir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+            const currentDir = document.documentElement.dir || 'ltr';
+            const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+            document.documentElement.dir = newDir;
+            localStorage.setItem('dir', newDir);
         });
     });
 
