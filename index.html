@@ -48,7 +48,7 @@
                     <div class="mobile-nav-actions">
                         <div class="action-buttons">
                             <button class="icon-btn theme-toggle"><i class="fas fa-moon"></i></button>
-                            <button class="icon-btn rtl-toggle" title="Switch Direction"><i class="fas fa-globe"></i></button>
+                            <button class="icon-btn rtl-toggle" title="Switch Direction">RTL</button>
                         </div>
                         <a href="login.html" class="btn btn-login">Login</a>
                     </div>
@@ -56,7 +56,7 @@
 
                 <div class="header-actions">
                     <button class="icon-btn theme-toggle" title="Switch Theme"><i class="fas fa-moon"></i></button>
-                    <button class="icon-btn rtl-toggle" title="Switch Direction"><i class="fas fa-globe"></i></button>
+                    <button class="icon-btn rtl-toggle" title="Switch Direction">RTL</button>
                     <a href="login.html" class="btn btn-login">Login</a>
                     <button class="icon-btn mobile-toggle" id="mobile-toggle"><i class="fas fa-bars"></i></button>
                 </div>
@@ -95,7 +95,7 @@
                     <div class="item-info">
                         <h3>Cotton Breeze</h3>
                         <p>Lightweight sets for warmer nights.</p>
-                        <a href="pages/collection-details.html" class="discover-link">Discover</a>
+                        <a href="pages/collection-details.html" class="btn-discover">Shop Collection <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="item-card reveal-up">
@@ -104,7 +104,7 @@
                     <div class="item-info">
                         <h3>Cozy Knits</h3>
                         <p>Plush textures for ultimate warmth.</p>
-                        <a href="pages/collection-details.html" class="discover-link">Discover</a>
+                        <a href="pages/collection-details.html" class="btn-discover">Shop Collection <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="item-card reveal-up">
@@ -113,7 +113,7 @@
                     <div class="item-info">
                         <h3>Silk-Soft Modal</h3>
                         <p>The perfect blend of nature and luxury.</p>
-                        <a href="pages/collection-details.html" class="discover-link">Discover</a>
+                        <a href="pages/collection-details.html" class="btn-discover">Shop Collection <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -138,38 +138,78 @@
     </section>
 
     <!-- 4. Best Sellers -->
-    <section>
+    <section class="bestsellers-section">
         <div class="container">
             <div class="section-title reveal-up">
                 <h2>Best Sellers</h2>
             </div>
             <div class="card-grid">
-                <div class="item-card reveal-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=600" loading="lazy">
+                <div class="item-card product-card reveal-up">
+                    <div class="item-img">
+                        <span class="product-badge">Bestseller</span>
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=600" alt="Organic Lace Robe" loading="lazy">
+                        <div class="img-overlay">
+                            <a href="pages/shop.html" class="overlay-btn"><i class="fas fa-eye"></i> Quick View</a>
+                        </div>
                     </div>
                     <div class="item-info">
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>(128)</span>
+                        </div>
                         <h4>Organic Lace Robe</h4>
-                        <p>$120.00</p>
+                        <p>Delicately crafted from GOTS-certified cotton lace.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$120.00</span>
+                            <a href="pages/shop.html" class="btn-shop-now">Shop Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="item-card reveal-up">
-                    <div class="item-img"><img
-                            src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&q=80&w=600" loading="lazy">
+                <div class="item-card product-card reveal-up">
+                    <div class="item-img">
+                        <span class="product-badge">Top Rated</span>
+                        <img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&q=80&w=600" alt="Modal Pajama Set" loading="lazy">
+                        <div class="img-overlay">
+                            <a href="pages/shop.html" class="overlay-btn"><i class="fas fa-eye"></i> Quick View</a>
+                        </div>
                     </div>
                     <div class="item-info">
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>(214)</span>
+                        </div>
                         <h4>Modal Pajama Set</h4>
-                        <p>$145.00</p>
+                        <p>Silky-smooth modal blend for the perfect night's sleep.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$145.00</span>
+                            <a href="pages/shop.html" class="btn-shop-now">Shop Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="item-card reveal-up">
-                    <div class="item-img"><img src="https://images.pexels.com/photos/6613782/pexels-photo-6613782.jpeg?auto=compress&cs=tinysrgb&w=600" loading="lazy">
+                <div class="item-card product-card reveal-up">
+                    <div class="item-img">
+                        <span class="product-badge">New Arrival</span>
+                        <img src="https://images.pexels.com/photos/6613782/pexels-photo-6613782.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sustainable Lounge Pants" loading="lazy">
+                        <div class="img-overlay">
+                            <a href="pages/shop.html" class="overlay-btn"><i class="fas fa-eye"></i> Quick View</a>
+                        </div>
                     </div>
                     <div class="item-info">
+                        <div class="product-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            <span>(89)</span>
+                        </div>
                         <h4>Sustainable Lounge Pants</h4>
-                        <p>$85.00</p>
+                        <p>Relaxed-fit organic cotton for effortless lounging.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$85.00</span>
+                            <a href="pages/shop.html" class="btn-shop-now">Shop Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="section-cta reveal-up">
+                <a href="pages/shop.html" class="btn btn-primary">View All Best Sellers <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -178,7 +218,7 @@
     <section class="bg-alt">
         <div class="container">
             <div class="section-title reveal-up">
-                <h2>Lumiere Stories</h2>
+                <h2>Loved by Night Owls</h2>
             </div>
             <div class="testimonial-grid">
                 <div class="reveal-up testimonial-card">
@@ -204,6 +244,7 @@
                     </div>
                 </div>
             </div>
+            <div class="section-cta reveal-up" style="margin-top:40px;"><a href="pages/shop.html" class="btn btn-primary">Start Shopping <i class="fas fa-arrow-right" style="margin-left:8px;"></i></a></div>
         </div>
     </section>
 

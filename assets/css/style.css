@@ -26,6 +26,22 @@
     --font-main: 'Outfit', sans-serif;
 }
 
+
+/* ── Global button / link reset ── */
+button, input[type="submit"], input[type="button"] {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: var(--font-main);
+}
+
+a.btn, a[class*="btn-"] {
+    text-decoration: none;
+    outline: none;
+}
+
 /* Base Styles */
 * {
     margin: 0;
@@ -170,7 +186,8 @@ body.dark-mode .nav-menu ul li a {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 1px solid rgba(212, 163, 115, 0.1);
+    border: 1px solid rgba(212, 163, 115, 0.15);
+    outline: none;
     background: var(--white);
     display: flex;
     align-items: center;
@@ -178,6 +195,7 @@ body.dark-mode .nav-menu ul li a {
     color: var(--text-dark);
     font-size: 1.1rem;
     cursor: pointer;
+    font-family: var(--font-main);
     transition: var(--transition);
 }
 
@@ -197,11 +215,19 @@ body.dark-mode .icon-btn {
 
 /* Buttons */
 .btn {
+    border-radius: 50px;
+    border: none;
+    outline: none;
     height: 44px;
     padding: 0 28px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
 }
 
 .btn-primary {
@@ -219,6 +245,7 @@ body.dark-mode .icon-btn {
     background: transparent;
     border: 2px solid var(--primary);
     color: var(--primary);
+    outline: none;
 }
 
 .btn-login:hover {
@@ -299,6 +326,53 @@ body.dark-mode .discover-link {
 .discover-link:hover::after {
     transform: scaleX(1);
     background: var(--primary);
+}
+
+/* Collection CTA Button */
+.btn-discover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 13px 24px;
+    border-radius: 50px;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: transparent;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-discover i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-discover:hover {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 8px 25px rgba(212, 163, 115, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-discover:hover i {
+    transform: translateX(5px);
+}
+
+body.dark-mode .btn-discover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+body.dark-mode .btn-discover:hover {
+    color: var(--white);
 }
 
 .bg-accent {
@@ -418,13 +492,14 @@ body.dark-mode .dropdown-content a:hover {
 
 /* Hero Section */
 .hero {
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background-size: cover;
-    background-position: center;
+    background-position: center top;
+    background-attachment: fixed;
     position: relative;
     color: var(--white);
     padding-top: var(--header-height);
@@ -473,7 +548,7 @@ body.dark-mode .dropdown-content a:hover {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%); /* Lighter gradient for better image visibility */
+    background: linear-gradient(170deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 100%);
     z-index: 1;
 }
 
@@ -515,6 +590,7 @@ body.dark-mode .dropdown-content a:hover {
 }
 
 .hero-btns .btn {
+    border-radius: 50px;
     position: relative;
     overflow: hidden;
 }
@@ -617,7 +693,7 @@ section {
 }
 
 .item-card {
-    background: var(--white);
+    background: var(--white);\r
     border-radius: 25px;
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -626,12 +702,178 @@ section {
 }
 
 .item-card:hover {
-    transform: translateY(-15px);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+/* Product Badge */
+.product-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 50px;
+    z-index: 3;
+}
+
+/* Image hover overlay */
+.img-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.item-card:hover .img-overlay {
+    opacity: 1;
+}
+
+.overlay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--text-dark);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 50px;
+    transition: var(--transition);
+    transform: translateY(10px);
+}
+
+.item-card:hover .overlay-btn {
+    transform: translateY(0);
+}
+
+.overlay-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Star Ratings */
+.product-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    margin-bottom: 10px;
+}
+
+.product-stars i {
+    color: var(--primary);
+    font-size: 0.82rem;
+}
+
+.product-stars span {
+    color: var(--text-light);
+    font-size: 0.78rem;
+    margin-left: 4px;
+}
+
+/* Product footer: price + CTA in one row */
+.product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+body.dark-mode .product-footer {
+    border-top-color: rgba(255,255,255,0.08);
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Shop Now inline CTA */
+.btn-shop-now {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    border-radius: 50px;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.btn-shop-now i {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-shop-now:hover {
+    background: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.btn-shop-now:hover i {
+    transform: translateX(4px);
+}
+
+body.dark-mode .btn-shop-now:hover {
+    background: var(--white);
+    color: var(--text-dark);
+}
+
+/* Section subtitle */
+.section-subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-top: -35px;
+    margin-bottom: 20px;
+}
+
+/* Section-level View All CTA */
+.section-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.section-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-cta .btn i {
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+}
+
+.section-cta .btn:hover i {
+    transform: translateX(5px);
 }
 
 .discover-link:hover i {
     transform: translateX(5px);
 }
+
 
 /* Form Styles */
 .form-control {
@@ -1660,6 +1902,7 @@ body.dark-mode .comparison-table td:first-child {
     .hero-btns { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
     
     .btn {
+    border-radius: 50px;
         font-size: 0.75rem !important;
         padding: 10px 20px !important;
     }
@@ -1685,6 +1928,7 @@ body.dark-mode .comparison-table td:first-child {
         align-items: center;
     }
     .cta-btns .btn {
+    border-radius: 50px;
         width: 100%;
         max-width: 300px;
         font-size: 0.8rem !important;
@@ -1985,4 +2229,12 @@ body.dark-mode .auth-actions .icon-btn {
         width: 100% !important;
         justify-content: space-between !important;
     }
+}
+
+.icon-btn.rtl-toggle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    width: auto;
+    padding: 0 15px;
+    border-radius: 50px;
 }
