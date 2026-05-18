@@ -212,3 +212,50 @@ body.dark-mode .user-meta h4 {
 body.dark-mode .user-meta span {
     color: rgba(255,255,255,0.6);
 }
+
+/* Custom Home 2 Cards Dark Mode Overrides */
+body.dark-mode .service-card,
+body.dark-mode .why-us-card,
+body.dark-mode .testimonial-card-home2,
+body.dark-mode .team-card-home2,
+body.dark-mode .blog-card-home2,
+body.dark-mode .faq-accordion-item {
+    background: #111111 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .service-card:hover,
+body.dark-mode .why-us-card:hover,
+body.dark-mode .testimonial-card-home2:hover,
+body.dark-mode .team-card-home2:hover,
+body.dark-mode .blog-card-home2:hover {
+    border-color: var(--primary) !important;
+    box-shadow: 0 20px 45px rgba(212, 163, 115, 0.15) !important;
+}
+
+body.dark-mode .faq-accordion-header {
+    background: transparent !important;
+}
+
+body.dark-mode .faq-accordion-panel {
+    background: transparent !important;
+}
+
+body.dark-mode .blog-info-home2 {
+    background: #111111 !important;
+}
+
+body.dark-mode .team-info-home2 {
+    background: #111111 !important;
+}
+
+body.dark-mode .faq-accordion-icon {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: var(--primary) !important;
+}
+
+body.dark-mode .faq-accordion-item.active .faq-accordion-icon {
+    background: var(--primary) !important;
+    color: var(--white) !important;
+}

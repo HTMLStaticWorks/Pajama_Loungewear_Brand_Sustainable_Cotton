@@ -4,17 +4,1367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumiere | Minimalist Sustainable Loungewear</title>
+    <title>Lumiere | Home 2 - Mindful Sustainable Loungewear</title>
+    <meta name="description" content="Redefining resting luxury with 100% GOTS certified organic sleepwear. Experience natural comfort designed to last.">
+    
+    <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Scripts -->
     <script src="assets/js/theme-init.js"></script>
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     <link rel="stylesheet" href="assets/css/rtl.css">
+    
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- Unique Styles for Home 2 Page Layout -->
+    <style>
+        /* Spacing system and utility rules */
+        .home2-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-subtitle-brand {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: block;
+            text-align: center;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 65px;
+            height: 3px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        /* 1. Hero Redesign: Split Layout & Asymmetry */
+        .hero-2 {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            background: linear-gradient(135deg, #fefae0 0%, #faedcd 100%);
+            padding-top: var(--header-height);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        body.dark-mode .hero-2 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #141414 100%);
+        }
+
+        /* Dark Mode Specific Overrides for Custom Home 2 Cards & FAQ Panels */
+        body.dark-mode .service-card,
+        body.dark-mode .why-us-card,
+        body.dark-mode .testimonial-card-home2,
+        body.dark-mode .team-card-home2,
+        body.dark-mode .blog-card-home2,
+        body.dark-mode .faq-accordion-item {
+            background: #111111 !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        body.dark-mode .service-card:hover,
+        body.dark-mode .why-us-card:hover,
+        body.dark-mode .testimonial-card-home2:hover,
+        body.dark-mode .team-card-home2:hover,
+        body.dark-mode .blog-card-home2:hover {
+            border-color: var(--primary) !important;
+            box-shadow: 0 20px 45px rgba(212, 163, 115, 0.15) !important;
+        }
+
+        body.dark-mode .faq-accordion-header {
+            background: transparent !important;
+        }
+
+        body.dark-mode .faq-accordion-panel {
+            background: transparent !important;
+        }
+
+        body.dark-mode .blog-info-home2 {
+            background: #111111 !important;
+        }
+
+        body.dark-mode .team-info-home2 {
+            background: #111111 !important;
+        }
+        
+        body.dark-mode .faq-accordion-icon {
+            background: rgba(255, 255, 255, 0.05) !important;
+            color: var(--primary) !important;
+        }
+
+        body.dark-mode .faq-accordion-item.active .faq-accordion-icon {
+            background: var(--primary) !important;
+            color: var(--white) !important;
+        }
+
+        .hero-2-content {
+            padding: 60px 80px;
+            z-index: 10;
+        }
+
+        .hero-2-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .hero-2-content p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .hero-2-image-wrapper {
+            padding: 40px 60px 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .hero-2-image-card {
+            width: 100%;
+            height: 520px;
+            max-width: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+            border: 8px solid var(--white);
+            transition: var(--transition);
+        }
+
+        body.dark-mode .hero-2-image-card {
+            border-color: #111111;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+
+        .hero-2-image-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 35px 75px rgba(212, 163, 115, 0.2);
+        }
+
+        body.dark-mode .hero-2-image-card:hover {
+            box-shadow: 0 35px 75px rgba(0,0,0,0.6);
+        }
+
+        .hero-2-image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hero Badges & Statistics */
+        .hero-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 45px;
+            border-top: 1px solid rgba(212, 163, 115, 0.15);
+            padding-top: 25px;
+        }
+
+        .hero-stat-item h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .hero-stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.3;
+            margin-bottom: 0;
+        }
+
+        .hero-trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(212, 163, 115, 0.2);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        body.dark-mode .trust-badge {
+            background: rgba(20, 20, 20, 0.7);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* 2. Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 35px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 163, 115, 0.08);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(212, 163, 115, 0.12);
+            border-color: var(--primary);
+        }
+
+        .service-icon-wrapper {
+            width: 65px;
+            height: 65px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon-wrapper {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotateY(180deg);
+        }
+
+        .service-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* 3. About Overview Section */
+        .about-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-images-collage {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 15px;
+        }
+
+        .collage-img-1 {
+            grid-column: 1 / 10;
+            grid-row: 1;
+            border-radius: 24px;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+
+        .collage-img-2 {
+            grid-column: 7 / 13;
+            grid-row: 1;
+            margin-top: 130px;
+            border-radius: 24px;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border: 8px solid var(--bg-light);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+            z-index: 2;
+        }
+
+        body.dark-mode .collage-img-2 {
+            border-color: #000000;
+        }
+
+        .collage-badge {
+            position: absolute;
+            bottom: -20px;
+            left: 30px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 20px 24px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(212, 163, 115, 0.35);
+            z-index: 3;
+            text-align: center;
+        }
+
+        .collage-badge .badge-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        .collage-badge .badge-text {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .about-text-content {
+            padding-inline-start: 20px;
+        }
+
+        .about-quote {
+            font-size: 1.15rem;
+            font-style: italic;
+            border-inline-start: 4px solid var(--primary);
+            padding-inline-start: 20px;
+            margin: 25px 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .about-key-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .key-point-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .key-point-item i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .key-point-item span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* 4. Why Choose Us Section */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .why-us-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .why-us-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(212, 163, 115, 0.12);
+            border-color: var(--primary-light);
+        }
+
+        .why-us-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .why-us-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .why-us-card p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* 5. Process/Workflow Steps */
+        .process-timeline {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 55px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: dashed var(--primary);
+            opacity: 0.25;
+            z-index: 1;
+        }
+
+        body.dark-mode .process-timeline::before {
+            background: dashed rgba(255, 255, 255, 0.15);
+            opacity: 0.5;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step-num {
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            box-shadow: 0 4px 10px rgba(212, 163, 115, 0.3);
+            font-size: 1.1rem;
+        }
+
+        .process-image-circle {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        body.dark-mode .process-image-circle {
+            border-color: #111111;
+        }
+
+        .process-step:hover .process-image-circle {
+            transform: scale(1.12) rotate(4deg);
+            box-shadow: 0 15px 30px rgba(212, 163, 115, 0.2);
+            border-color: var(--primary);
+        }
+
+        .process-image-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .process-step h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* 6. Curated Pajama Club / Pricing Plans */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.featured-plan {
+            border: 2.5px solid var(--primary);
+            transform: scale(1.04);
+            z-index: 5;
+        }
+
+        body.dark-mode .pricing-card.featured-plan {
+            border-color: var(--primary);
+        }
+
+        .pricing-badge-popular {
+            position: absolute;
+            top: 22px;
+            right: 30px;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .plan-price-row {
+            margin: 20px 0 30px;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .plan-price {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1;
+        }
+
+        .plan-period {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .plan-features-list {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex-grow: 1;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .plan-features-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .plan-features-list li i {
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /* 7. Testimonials Layout Grid */
+        .testimonial-grid-home2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card-home2 {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px 35px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 163, 115, 0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card-home2:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(212, 163, 115, 0.1);
+        }
+
+        .quote-stars {
+            display: flex;
+            gap: 4px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card-home2 p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-user img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-light);
+        }
+
+        .user-meta-info h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+            color: var(--text-dark);
+        }
+
+        .user-meta-info span {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .user-meta-info span i {
+            color: #55a355;
+            font-size: 0.75rem;
+        }
+
+        /* 8. Team Members Section */
+        .team-grid-home2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-card-home2 {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .team-card-home2:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+        }
+
+        .team-img-wrapper {
+            position: relative;
+            height: 340px;
+            overflow: hidden;
+        }
+
+        .team-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-card-home2:hover .team-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .team-social-overlay {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .team-card-home2:hover .team-social-overlay {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        .team-social-overlay a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--white);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .team-social-overlay a:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .team-info-home2 {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .team-role {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .team-info-home2 h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .team-bio {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* 9. Interactive Accordion FAQ Section */
+        .faq-accordion-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-accordion-item {
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 163, 115, 0.12);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-accordion-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.05);
+        }
+
+        .faq-accordion-header {
+            width: 100%;
+            padding: 24px 30px;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: inherit;
+        }
+
+        .faq-accordion-header h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .faq-accordion-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .faq-accordion-item.active .faq-accordion-icon {
+            transform: rotate(180deg);
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .faq-accordion-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 30px;
+        }
+
+        .faq-accordion-panel-content {
+            padding-bottom: 24px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 10. Blog/Insights Preview */
+        .blog-grid-home2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-card-home2 {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card-home2:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        }
+
+        .blog-img-wrapper {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+        }
+
+        .blog-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card-home2:hover .blog-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .blog-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--white);
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        body.dark-mode .blog-tag {
+            background: #111111;
+        }
+
+        .blog-info-home2 {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-info-home2 h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .blog-info-home2 p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .blog-read-link {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+        }
+
+        .blog-read-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card-home2:hover .blog-read-link i {
+            transform: translateX(5px);
+        }
+
+        /* 11. Contact CTA Banner Box */
+        .contact-banner-home2 {
+            background: linear-gradient(135deg, var(--primary) 0%, #ba8a5b 100%);
+            border-radius: 30px;
+            padding: 60px 80px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            box-shadow: 0 20px 45px rgba(212, 163, 115, 0.25);
+            margin-top: 30px;
+        }
+
+        body.dark-mode .contact-banner-home2 {
+            background: linear-gradient(135deg, #111111 0%, #222222 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-banner-content h3 {
+            font-size: 2.2rem;
+            color: var(--white) !important;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .contact-banner-content p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9) !important;
+            max-width: 600px;
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+
+        .contact-banner-actions {
+            display: flex;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-banner-actions .btn-outline {
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .contact-banner-actions .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* 12. Newsletter Form Validation Design */
+        .newsletter-box-home2 {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--primary-light);
+            padding: 60px 50px;
+            border-radius: 35px;
+            box-shadow: var(--shadow);
+        }
+
+        body.dark-mode .newsletter-box-home2 {
+            background: #111111;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .newsletter-box-home2 h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .newsletter-box-home2 p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .newsletter-form-home2 {
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .newsletter-input-group {
+            display: flex;
+            gap: 10px;
+            background: var(--white);
+            padding: 8px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            border: 1.5px solid rgba(212, 163, 115, 0.15);
+        }
+
+        body.dark-mode .newsletter-input-group {
+            background: #000000;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-input-group input {
+            flex-grow: 1;
+            border: none !important;
+            background: transparent !important;
+            padding: 0 25px;
+            font-size: 0.95rem;
+            outline: none;
+            font-family: var(--font-main);
+            color: var(--text-dark);
+        }
+
+        .newsletter-input-group .btn {
+            border-radius: 50px !important;
+        }
+
+        .newsletter-msg {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(-5px);
+            transition: var(--transition);
+        }
+
+        .newsletter-msg.show-success {
+            opacity: 1;
+            transform: translateY(0);
+            color: #4b6a4b;
+        }
+
+        .newsletter-msg.show-error {
+            opacity: 1;
+            transform: translateY(0);
+            color: #b05c5c;
+        }
+
+        body.dark-mode .newsletter-msg.show-success {
+            color: #8bbd8b !important;
+        }
+
+        body.dark-mode .newsletter-msg.show-error {
+            color: #e59090 !important;
+        }
+
+        /* Responsive Breakpoints Rules */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .why-us-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-2-content {
+                padding: 60px 40px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .hero-2 {
+                grid-template-columns: 1fr;
+                text-align: center;
+                min-height: auto;
+                padding-bottom: 80px;
+            }
+            
+            .hero-2-content {
+                padding: 60px 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-2-image-wrapper {
+                padding: 20px 40px 60px;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .hero-2-image-card {
+                height: 420px;
+                max-width: 450px;
+            }
+
+            .hero-trust-badges {
+                justify-content: center;
+            }
+
+            .about-grid-2 {
+                grid-template-columns: 1fr;
+                gap: 80px;
+            }
+
+            .about-text-content {
+                padding-inline-start: 0;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .pricing-card.featured-plan {
+                transform: none;
+            }
+            
+            .team-grid-home2 {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .testimonial-grid-home2 {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .blog-grid-home2 {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .contact-banner-home2 {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px;
+            }
+            
+            .contact-banner-actions {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-timeline {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .process-timeline::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .about-key-points {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-input-group {
+                flex-direction: column;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+                border: none;
+            }
+            
+            .newsletter-input-group input {
+                background: var(--white) !important;
+                height: 50px;
+                border-radius: 50px;
+                box-shadow: var(--shadow);
+                border: 1.5px solid rgba(212, 163, 115, 0.15) !important;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+            
+            body.dark-mode .newsletter-input-group input {
+                background: #111111 !important;
+            }
+
+            .collage-img-1 {
+                height: 300px;
+            }
+
+            .collage-img-2 {
+                height: 220px;
+                margin-top: 100px;
+            }
+
+            .hero-2-image-wrapper {
+                padding: 10px 20px 40px;
+            }
+
+            .hero-2-image-card {
+                height: 300px;
+                max-width: 100%;
+                border-width: 4px;
+            }
+        }
+
+        /* Directional RTL Rules for Custom Spacing */
+        [dir="rtl"] .section-title h2::after {
+            left: auto;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        [dir="rtl"] .about-quote {
+            border-inline-start: none;
+            border-inline-end: 4px solid var(--primary);
+            padding-inline-start: 0;
+            padding-inline-end: 20px;
+        }
+
+        [dir="rtl"] .collage-badge {
+            left: auto;
+            right: 30px;
+        }
+
+        [dir="rtl"] .blog-tag {
+            left: auto;
+            right: 15px;
+        }
+
+        [dir="rtl"] .pricing-badge-popular {
+            right: auto;
+            left: 30px;
+        }
+
+        [dir="rtl"] .hero-2-content {
+            text-align: right;
+        }
+
+        [dir="rtl"] .hero-btns,
+        [dir="rtl"] .hero-trust-badges {
+            justify-content: flex-start;
+        }
+
+        [dir="rtl"] .hero-2-image-wrapper {
+            padding: 40px 20px 40px 60px;
+        }
+
+        @media (max-width: 991px) {
+            [dir="rtl"] .hero-btns,
+            [dir="rtl"] .hero-trust-badges {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -39,7 +1389,7 @@
                     </div>
                 </nav>
                 <div class="header-actions">
-                    <button class="icon-btn theme-toggle"><i class="fas fa-moon"></i></button>
+                    <button class="icon-btn theme-toggle" title="Switch Theme"><i class="fas fa-moon"></i></button>
                     <button class="icon-btn rtl-toggle" title="Switch Direction">RTL</button>
                     <a href="login.html" class="btn btn-login">Login</a>
                     <button class="icon-btn mobile-toggle" id="mobile-toggle"><i class="fas fa-bars"></i></button>
@@ -48,117 +1398,483 @@
         </div>
     </header>
 
-    <!-- 1. Hero Banner -->
-    <section class="hero"
-        style="background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=1920');">
-        <div class="hero-content reveal-up">
-            <div class="hero-subtitle"
-                style="display: flex; align-items: center; justify-content: center; gap: 20px; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; margin-bottom: 20px; color: var(--primary-light);">
-                <span style="width: 40px; height: 1px; background: var(--primary-light);"></span>
-                <span>The New Season</span>
-                <span style="width: 40px; height: 1px; background: var(--primary-light);"></span>
-            </div>
-            <h1>Naturally Soft</h1>
-            <p>Embrace the tranquility of sustainable fabrics that breathe with you.<br>Experience the pure touch of 100% GOTS certified organic cotton.</p>
-            <div class="hero-btns">
-                <a href="pages/shop.html" class="btn btn-primary">Shop Now</a>
-                <a href="pages/collection-details.html" class="btn btn-outline">Explore Collections</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. New Arrivals -->
-    <section>
-        <div class="container">
-            <div class="section-title reveal-up">
-                <h2>New Arrivals</h2>
-            </div>
-            <div class="card-grid">
-                <div class="item-card reveal-up">
-                    <div class="item-img"><img src="https://images.pexels.com/photos/8066621/pexels-photo-8066621.jpeg?auto=compress&cs=tinysrgb&w=600" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                    </div>
-                    <div class="item-info">
-                        <h4>Organic Slip Dress</h4>
-                        <p>$75.00</p>
-                    </div>
+    <main>
+        <!-- 1. Redesigned Hero Section -->
+        <section class="hero-2">
+            <div class="hero-2-content reveal-up">
+                <span class="section-subtitle-brand" style="text-align: inherit; margin-bottom: 15px;">Eco-Conscious Resting</span>
+                <h1>Serenity in Every Single Thread</h1>
+                <p>Embrace the luxury of breathing fabrics that move effortlessly with you. Handcrafted from 100% GOTS certified organic cotton, our premium sleepwear offers cloud-like softness for deep rest and beautiful, slow mornings.</p>
+                
+                <div class="hero-btns">
+                    <a href="pages/shop.html" class="btn btn-primary">Shop the Collection</a>
+                    <a href="pages/about.html" class="btn btn-outline-primary">Our Philosophy</a>
                 </div>
-                <div class="item-card reveal-up">
-                    <div class="item-img"><img
-                            src="https://images.pexels.com/photos/6613782/pexels-photo-6613782.jpeg?auto=compress&cs=tinysrgb&w=600" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+
+                <div class="hero-trust-badges">
+                    <span class="trust-badge"><i class="fas fa-leaf"></i> GOTS Certified</span>
+                    <span class="trust-badge"><i class="fas fa-globe-americas"></i> Carbon-Neutral</span>
+                    <span class="trust-badge"><i class="fas fa-box-open"></i> Zero-Plastic Package</span>
+                </div>
+
+                <div class="hero-stats-row">
+                    <div class="hero-stat-item">
+                        <h3>98%</h3>
+                        <p>Customer Comfort Score</p>
                     </div>
-                    <div class="item-info">
-                        <h4>Modal Cardigan Set</h4>
-                        <p>$110.00</p>
+                    <div class="hero-stat-item">
+                        <h3>100%</h3>
+                        <p>Ethical Workplaces</p>
+                    </div>
+                    <div class="hero-stat-item">
+                        <h3>15k+</h3>
+                        <p>Mindful Sleepers</p>
                     </div>
                 </div>
             </div>
-            <div class="section-cta reveal-up"><a href="pages/shop.html" class="btn btn-primary">View All New Arrivals <i class="fas fa-arrow-right" style="margin-left:8px;"></i></a></div>
-        </div>
-    </section>
-
-    <!-- 3. Sleepwear Categories -->
-    <section style="background: var(--bg-light);">
-        <div class="container">
-            <div class="section-title reveal-up">
-                <h2>Shop by Category</h2>
+            <div class="hero-2-image-wrapper">
+                <div class="hero-2-image-card reveal-left">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1200" alt="Mindful Sustainable Loungewear Bedding" loading="lazy">
+                </div>
             </div>
-            <div class="category-grid">
-                <div class="category-card reveal-left">
-                    <img src="https://images.pexels.com/photos/6311391/pexels-photo-6311391.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Loungewear" loading="lazy">
-                    <div class="category-overlay" style="flex-direction:column;gap:15px;">
-                        <h3 style="color: white; font-size: 2rem;">Loungewear</h3>
-                        <a href="pages/shop.html" class="btn btn-outline" style="font-size:0.85rem;height:38px;padding:0 20px;">Shop Loungewear</a>
+        </section>
+
+        <!-- 2. Services/Features Section -->
+        <section class="home2-section" style="background: var(--white);">
+            <div class="container">
+                <span class="section-subtitle-brand">Our Brand Promises</span>
+                <div class="section-title">
+                    <h2>Crafted with Ethical Intent</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal-up">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Organic Materials</h4>
+                        <p>Certified organic cotton and silk-soft modal harvested without chemical pesticides.</p>
+                    </div>
+                    <div class="service-card reveal-up">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>Ethical Labor</h4>
+                        <p>Hand-woven in certified clean workshops under safe, fair-wage conditions.</p>
+                    </div>
+                    <div class="service-card reveal-up">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h4>Global Logistics</h4>
+                        <p>Fast, carbon-neutral global delivery in fully compostable paper parcels.</p>
+                    </div>
+                    <div class="service-card reveal-up">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h4>Tailored Fit</h4>
+                        <p>Relaxed, breathable designs engineered to adapt comfort to your natural shape.</p>
+                    </div>
+                    <div class="service-card reveal-up">
+                        <div class="service-icon-wrapper">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h4>Zero Waste Packaging</h4>
+                        <p>Shipped in reusable, natural drawstring bags made from organic cotton leftovers.</p>
                     </div>
                 </div>
-                <div class="category-card reveal-up">
-                    <img src="https://images.pexels.com/photos/6311599/pexels-photo-6311599.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sleepwear" loading="lazy">
-                    <div class="category-overlay" style="flex-direction:column;gap:15px;">
-                        <h3 style="color: white; font-size: 2rem;">Sleepwear</h3>
-                        <a href="pages/shop.html" class="btn btn-outline" style="font-size:0.85rem;height:38px;padding:0 20px;">Shop Sleepwear</a>
+            </div>
+        </section>
+
+        <!-- 3. About Overview Section -->
+        <section class="home2-section" style="background: var(--bg-light);">
+            <div class="container">
+                <div class="about-grid-2">
+                    <div class="about-images-collage reveal-left">
+                        <img class="collage-img-1" src="https://images.pexels.com/photos/3772510/pexels-photo-3772510.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mindful Loungewear Model" loading="lazy">
+                        <img class="collage-img-2" src="https://images.pexels.com/photos/3756345/pexels-photo-3756345.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Weaving Organic Fabric Threads" loading="lazy">
+                        <div class="collage-badge">
+                            <span class="badge-number">100%</span>
+                            <span class="badge-text">Traceable</span>
+                        </div>
+                    </div>
+                    <div class="about-text-content reveal-up">
+                        <span class="section-subtitle-brand" style="text-align: inherit;">Lumiere Heritage</span>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Sleepwear That Respects Your Body & The Planet</h2>
+                        <p>Lumiere was founded in 2024 to rewrite the rules of resting garments. We reject the rushed shortcuts of massive industries to embrace slow, deliberate design. Every fiber of our lounge sets is selected with rigorous standards, tracing back to ethical, water-efficient organic cotton farms.</p>
+                        <div class="about-quote">
+                            "We believe that authentic luxury begins when the world goes quiet—in the mindful hours of rest, where quality matters most."
+                        </div>
+                        <div class="about-key-points">
+                            <div class="key-point-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>GOTS Certified Fiber</span>
+                            </div>
+                            <div class="key-point-item">
+                                <i class="fas fa-tint-slash"></i>
+                                <span>Zero Harsh Bleaches</span>
+                            </div>
+                            <div class="key-point-item">
+                                <i class="fas fa-sun"></i>
+                                <span>Solar-Powered Mills</span>
+                            </div>
+                            <div class="key-point-item">
+                                <i class="fas fa-recycle"></i>
+                                <span>100% Circular Off-Cuts</span>
+                            </div>
+                        </div>
+                        <a href="pages/about.html" class="btn btn-primary">Read Our Full Story</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 4. Gift Sets -->
-    <section>
-        <div class="container">
-            <div class="feature-grid">
-                <div class="reveal-up">
-                    <h2>Gift the Joy of Rest</h2>
-                    <p>Our hand-curated gift sets come in eco-friendly luxury packaging, ready to make someone's night extra special. Choose from our selection of organic cotton essentials, beautifully presented in a reusable linen pouch. Each set includes a personalized note to add that special touch to your gift.</p>
-                    <a href="pages/gift-sets.html" class="btn btn-primary" style="margin-top: 25px;">Browse Gifts</a>
+        <!-- 4. Why Choose Us Section -->
+        <section class="home2-section" style="background: var(--white);">
+            <div class="container">
+                <span class="section-subtitle-brand">Why Choose Lumiere</span>
+                <div class="section-title">
+                    <h2>Pure Comfort Without Compromise</h2>
                 </div>
-                <div class="reveal-left"><img
-                        src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=800"
-                        style="border-radius: 40px; width: 100%; height: 320px; object-fit: cover;" loading="lazy"></div>
+                <div class="why-us-grid">
+                    <div class="why-us-card reveal-up">
+                        <div class="why-us-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Premium Durability</h4>
+                        <p>Specifically woven to stay wonderfully soft, retaining its cozy texture and shape wash after wash.</p>
+                    </div>
+                    <div class="why-us-card reveal-up">
+                        <div class="why-us-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <h4>100% Certified Eco</h4>
+                        <p>Fully compliant GOTS organic guarantee tracking every seed, yarn, spinner, and workshop stitch.</p>
+                    </div>
+                    <div class="why-us-card reveal-up">
+                        <div class="why-us-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4>Zero Waste Standard</h4>
+                        <p>All leftover fabrics are gathered, shredded, and spun back into reusable accessory packaging bags.</p>
+                    </div>
+                    <div class="why-us-card reveal-up">
+                        <div class="why-us-icon">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <h4>Lifetime Guarantee</h4>
+                        <p>We stand fully behind our tailoring. Contact us for complimentary button or seam repairs anytime.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 5. Care Instructions -->
-    <section style="background: #fafafa;">
-        <div class="container text-center" style="text-align: center;">
-            <div class="section-title reveal-up">
-                <h2>Built to Last</h2>
+        <!-- 5. Process/Workflow Steps -->
+        <section class="home2-section" style="background: var(--bg-light);">
+            <div class="container">
+                <span class="section-subtitle-brand">Behind the Scenes</span>
+                <div class="section-title">
+                    <h2>How We Craft Your Comfort</h2>
+                </div>
+                <div class="process-timeline">
+                    <div class="process-step reveal-up">
+                        <div class="process-step-num">1</div>
+                        <div class="process-image-circle">
+                            <img src="https://images.pexels.com/photos/2260662/pexels-photo-2260662.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Ethical Organic Sourcing" loading="lazy">
+                        </div>
+                        <h4>Rain-Fed Sourcing</h4>
+                        <p>We select premium organic cotton seeds grown solely using natural rainfall, respecting local water cycles.</p>
+                    </div>
+                    <div class="process-step reveal-up">
+                        <div class="process-step-num">2</div>
+                        <div class="process-image-circle">
+                            <img src="https://images.pexels.com/photos/3952005/pexels-photo-3952005.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Spinning Natural Yarn" loading="lazy">
+                        </div>
+                        <h4>Gentle Spinning</h4>
+                        <p>Raw cotton is spun into fine threads using clean processes, completely avoiding chemical bleaches or metal dyes.</p>
+                    </div>
+                    <div class="process-step reveal-up">
+                        <div class="process-step-num">3</div>
+                        <div class="process-image-circle">
+                            <img src="https://images.pexels.com/photos/4614233/pexels-photo-4614233.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Tailored Precision Work" loading="lazy">
+                        </div>
+                        <h4>Tailored Precision</h4>
+                        <p>Our expert tailors cut and stitch every single pajama set to flow naturally and loosely on your body.</p>
+                    </div>
+                    <div class="process-step reveal-up">
+                        <div class="process-step-num">4</div>
+                        <div class="process-image-circle">
+                            <img src="https://images.pexels.com/photos/264787/pexels-photo-264787.jpeg?auto=compress&cs=tinysrgb&w=300" alt="Compostable Parcel Packaging" loading="lazy">
+                        </div>
+                        <h4>Conscious Delivery</h4>
+                        <p>Folded gently into cotton pouches and shipped directly to your door in fully compostable boxes.</p>
+                    </div>
+                </div>
             </div>
-            <div class="care-grid">
-                <div class="reveal-up"><i class="fas fa-tint" style="font-size: 2rem; color: var(--primary);"></i>
-                    <h4 style="margin-top: 15px;">Cool Wash</h4>
+        </section>
+
+        <!-- 6. Subscription / Pricing Plans (Pajama Box Club) -->
+        <section class="home2-section" style="background: var(--white);">
+            <div class="container">
+                <span class="section-subtitle-brand">Lumiere Club</span>
+                <div class="section-title">
+                    <h2>Curated Sleepwear Plans</h2>
                 </div>
-                <div class="reveal-up"><i class="fas fa-sun" style="font-size: 2rem; color: var(--primary);"></i>
-                    <h4 style="margin-top: 15px;">Air Dry</h4>
-                </div>
-                <div class="reveal-up"><i class="fas fa-cloud" style="font-size: 2rem; color: var(--primary);"></i>
-                    <h4 style="margin-top: 15px;">Eco-Friendly</h4>
+                <div class="pricing-grid">
+                    <!-- Plan 1 -->
+                    <div class="pricing-card reveal-up">
+                        <h3 class="plan-name">Essential Rest</h3>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Perfect introduction to organic sleep luxury.</p>
+                        <div class="plan-price-row">
+                            <span class="plan-price">$65</span>
+                            <span class="plan-period">/ month</span>
+                        </div>
+                        <ul class="plan-features-list">
+                            <li><i class="fas fa-check-circle"></i> 1 Organic Cotton Pajama Set</li>
+                            <li><i class="fas fa-check-circle"></i> Reusable Cotton Travel Pouch</li>
+                            <li><i class="fas fa-check-circle"></i> Sizing & Fit Guidance Booklet</li>
+                            <li><i class="fas fa-check-circle"></i> Free Carbon-Neutral Shipping</li>
+                        </ul>
+                        <a href="pages/pricing.html" class="btn btn-outline-primary">Join Essential Club</a>
+                    </div>
+                    <!-- Plan 2 (Featured) -->
+                    <div class="pricing-card featured-plan reveal-up">
+                        <span class="pricing-badge-popular">Most Popular</span>
+                        <h3 class="plan-name">Luxury Suite</h3>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Complete bedtime comfort, updated seasonally.</p>
+                        <div class="plan-price-row">
+                            <span class="plan-price">$110</span>
+                            <span class="plan-period">/ month</span>
+                        </div>
+                        <ul class="plan-features-list">
+                            <li><i class="fas fa-check-circle"></i> 1 Premium Sleepwear Set</li>
+                            <li><i class="fas fa-check-circle"></i> 1 Hand-Tailored Relax Robe</li>
+                            <li><i class="fas fa-check-circle"></i> Coordinated Cotton Sleep Mask</li>
+                            <li><i class="fas fa-check-circle"></i> Priority Access to Limited Runs</li>
+                            <li><i class="fas fa-check-circle"></i> Complimentary Sizing Customization</li>
+                        </ul>
+                        <a href="pages/pricing.html" class="btn btn-primary">Join Luxury Suite</a>
+                    </div>
+                    <!-- Plan 3 -->
+                    <div class="pricing-card reveal-up">
+                        <h3 class="plan-name">Royal Silk Box</h3>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">Bespoke silk-modal tailored packages.</p>
+                        <div class="plan-price-row">
+                            <span class="plan-price">$165</span>
+                            <span class="plan-period">/ month</span>
+                        </div>
+                        <ul class="plan-features-list">
+                            <li><i class="fas fa-check-circle"></i> 1 Silk-Modal Premium Sleep Set</li>
+                            <li><i class="fas fa-check-circle"></i> 1 Elegant French Lace Robe</li>
+                            <li><i class="fas fa-check-circle"></i> Custom-tailored monogramming</li>
+                            <li><i class="fas fa-check-circle"></i> Organic cotton sheets accessory</li>
+                            <li><i class="fas fa-check-circle"></i> 10% Lifetime Shop Discount</li>
+                        </ul>
+                        <a href="pages/pricing.html" class="btn btn-outline-primary">Join Royal Club</a>
+                    </div>
                 </div>
             </div>
-            <div style="margin-top:40px;"><a href="pages/care-instructions.html" class="btn btn-primary">Full Care Guide <i class="fas fa-arrow-right" style="margin-left:8px;"></i></a></div>
-        </div>
-    </section>
+        </section>
 
+        <!-- 7. Testimonials Section -->
+        <section class="home2-section" style="background: var(--bg-light);">
+            <div class="container">
+                <span class="section-subtitle-brand">Client Feedback</span>
+                <div class="section-title">
+                    <h2>Loved by Rest Seekers</h2>
+                </div>
+                <div class="testimonial-grid-home2">
+                    <div class="testimonial-card-home2 reveal-up">
+                        <div>
+                            <div class="quote-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Lumiere sets are a game-changer. The GOTS organic cotton feels unbelievably light and breathable. The perfect companion for lazy Sunday mornings."</p>
+                        </div>
+                        <div class="testimonial-user">
+                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Sarah K." loading="lazy">
+                            <div class="user-meta-info">
+                                <h5>Sarah K.</h5>
+                                <span><i class="fas fa-check-circle"></i> Verified Buyer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card-home2 reveal-up">
+                        <div>
+                            <div class="quote-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Luxury in every stitch. I love knowing that my comfort doesn't come at the cost of the environment. Customer service is stellar and packaging is beautiful!"</p>
+                        </div>
+                        <div class="testimonial-user">
+                            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Michael D." loading="lazy">
+                            <div class="user-meta-info">
+                                <h5>Michael D.</h5>
+                                <span><i class="fas fa-check-circle"></i> Verified Buyer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card-home2 reveal-up">
+                        <div>
+                            <div class="quote-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>"Absolute perfection. The fit is roomy yet elegant, and the modal sleep set has maintained its incredible softness through dozens of washes."</p>
+                        </div>
+                        <div class="testimonial-user">
+                            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150" alt="Julia B." loading="lazy">
+                            <div class="user-meta-info">
+                                <h5>Julia B.</h5>
+                                <span><i class="fas fa-check-circle"></i> Loyal Member</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- 8. FAQ Section -->
+        <section class="home2-section" style="background: var(--bg-light);">
+            <div class="container">
+                <span class="section-subtitle-brand">Common Inquiries</span>
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-accordion-container">
+                    <div class="faq-accordion-item reveal-up">
+                        <button class="faq-accordion-header" aria-expanded="false">
+                            <h4>What makes GOTS certified cotton different?</h4>
+                            <div class="faq-accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                        </button>
+                        <div class="faq-accordion-panel">
+                            <div class="faq-accordion-panel-content">
+                                Global Organic Textile Standard (GOTS) is the ultimate benchmark for organic cotton. It guarantees that the fibers are grown without chemical fertilizers, pesticide sprays, or genetically modified seeds, while enforcing strict ethical working standards at every production mill.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-accordion-item reveal-up">
+                        <button class="faq-accordion-header" aria-expanded="false">
+                            <h4>How does the sleepwear pajama subscription work?</h4>
+                            <div class="faq-accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                        </button>
+                        <div class="faq-accordion-panel">
+                            <div class="faq-accordion-panel-content">
+                                When you join our Lumiere Pajama Club, you will receive a seasonal box customized to your layout and size tastes. You have complete control to swap pajama designs, update sizes, skip a month, or cancel directly from your profile dashboard without penalties.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-accordion-item reveal-up">
+                        <button class="faq-accordion-header" aria-expanded="false">
+                            <h4>Do you offer custom tailoring or fit guidance?</h4>
+                            <div class="faq-accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                        </button>
+                        <div class="faq-accordion-panel">
+                            <div class="faq-accordion-panel-content">
+                                Absolutely. All our pajama cuts are inherently relaxed, but if you need bespoke waist sizes, leg adjustments, or custom length stitching, our Premium subscription tier includes sizing adjustments. You can also view our online sizing guide.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-accordion-item reveal-up">
+                        <button class="faq-accordion-header" aria-expanded="false">
+                            <h4>How should I wash and care for my organic cotton?</h4>
+                            <div class="faq-accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                        </button>
+                        <div class="faq-accordion-panel">
+                            <div class="faq-accordion-panel-content">
+                                Because our garments contain no harsh chemicals or rigid finishes, we recommend washing on a gentle machine cycle with cool water and organic detergents. We advise hanging to air dry, allowing the fibers to breathe and soften naturally with age.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Blog/Insights Preview -->
+        <section class="home2-section" style="background: var(--white);">
+            <div class="container">
+                <span class="section-subtitle-brand">Lumiere Journal</span>
+                <div class="section-title">
+                    <h2>Sleep & Sustainability Journal</h2>
+                </div>
+                <div class="blog-grid-home2">
+                    <!-- Article 1 -->
+                    <article class="blog-card-home2 reveal-up">
+                        <div class="blog-img-wrapper">
+                            <span class="blog-tag">Sleep Science</span>
+                            <img src="https://images.pexels.com/photos/1028741/pexels-photo-1028741.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Woman sleeping comfortably" loading="lazy">
+                        </div>
+                        <div class="blog-info-home2">
+                            <span class="blog-date">May 14, 2026</span>
+                            <h4>Why Organic Cotton Promotes Cooler, Deeper Rest</h4>
+                            <p>Exploring how unbleached organic fibers allow natural air circulation, preventing skin breakouts and night sweat.</p>
+                            <a href="#" class="blog-read-link">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <!-- Article 2 -->
+                    <article class="blog-card-home2 reveal-up">
+                        <div class="blog-img-wrapper">
+                            <span class="blog-tag">Rituals</span>
+                            <img src="https://images.pexels.com/photos/3771120/pexels-photo-3771120.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Evening cup of herbal tea" loading="lazy">
+                        </div>
+                        <div class="blog-info-home2">
+                            <span class="blog-date">May 09, 2026</span>
+                            <h4>Crafting the Ultimate Bedtime Wind-Down Ritual</h4>
+                            <p>From organic chamomile tea to warm, screen-free spaces, we outline actionable tips to ease your mind into rest.</p>
+                            <a href="#" class="blog-read-link">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <!-- Article 3 -->
+                    <article class="blog-card-home2 reveal-up">
+                        <div class="blog-img-wrapper">
+                            <span class="blog-tag">Slow Fashion</span>
+                            <img src="https://images.pexels.com/photos/3735657/pexels-photo-3735657.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Organized minimalist organic clothing rack" loading="lazy">
+                        </div>
+                        <div class="blog-info-home2">
+                            <span class="blog-date">April 28, 2026</span>
+                            <h4>The True Human & Environmental Cost of Loungewear</h4>
+                            <p>An honest dive into toxic synthetic coloring, plastic microfibers, and why circular luxury is the path forward.</p>
+                            <a href="#" class="blog-read-link">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Contact CTA Banner -->
+        <section class="home2-section" style="background: var(--white); padding-top: 0;">
+            <div class="container">
+                <div class="contact-banner-home2 reveal-up">
+                    <div class="contact-banner-content">
+                        <h3>Need Personal Sizing Guidance?</h3>
+                        <p>Book a direct virtual styling consultation with our patternmakers to ensure your pajamas fit precisely to your comfort.</p>
+                    </div>
+                    <div class="contact-banner-actions">
+                        <a href="pages/contact.html" class="btn btn-white">Schedule Consultation</a>
+                        <a href="pages/contact.html" class="btn btn-outline">Send a Message</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. Newsletter Section with Validation UX -->
+        <section class="home2-section" style="background: var(--bg-light);">
+            <div class="container">
+                <div class="newsletter-box-home2 reveal-up">
+                    <span class="section-subtitle-brand">Mindful Updates</span>
+                    <h3>Join The Lumiere Circle</h3>
+                    <p>Register to receive priority stock alerts, cozy styling tips, and an instant 15% discount code on your first sleepwear purchase.</p>
+                    
+                    <form class="newsletter-form-home2" id="home2-newsletter-form" novalidate>
+                        <div class="newsletter-input-group">
+                            <input type="email" id="home2-news-email" placeholder="Enter your email address..." required aria-label="Email address input">
+                            <button type="submit" class="btn btn-primary" aria-label="Subscribe button">Subscribe</button>
+                        </div>
+                        <div class="newsletter-msg" id="home2-newsletter-msg" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -200,9 +1916,7 @@
                     <p>Join the Lumiere Circle for restock alerts and cozy news.</p>
                     <form style="margin-top: 20px; display: flex; gap: 10px;">
                         <input type="email" placeholder="Email">
-                        <button class="social-icon"
-                            style="border: none; cursor: pointer; background: var(--primary);"><i
-                                class="fas fa-paper-plane"></i></button>
+                        <button class="social-icon" style="border: none; cursor: pointer; background: var(--primary);"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
@@ -212,7 +1926,82 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
+    
+    <!-- Home 2 Custom Interactive Behaviors -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // A. FAQ Accordion Click Behavior
+            const accordionHeaders = document.querySelectorAll('.faq-accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const panel = header.nextElementSibling;
+                    const isCurrentlyActive = item.classList.contains('active');
+                    
+                    // Close all other panels first
+                    document.querySelectorAll('.faq-accordion-item').forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-accordion-header').setAttribute('aria-expanded', 'false');
+                        otherItem.querySelector('.faq-accordion-panel').style.maxHeight = null;
+                    });
+                    
+                    if (!isCurrentlyActive) {
+                        item.classList.add('active');
+                        header.setAttribute('aria-expanded', 'true');
+                        // Calculate full height of content inside panel
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    } else {
+                        item.classList.remove('active');
+                        header.setAttribute('aria-expanded', 'false');
+                        panel.style.maxHeight = null;
+                    }
+                });
+            });
+
+            // B. Accessible Form Validation UX for Newsletter
+            const form = document.getElementById('home2-newsletter-form');
+            const emailInput = document.getElementById('home2-news-email');
+            const msgContainer = document.getElementById('home2-newsletter-msg');
+            
+            if (form && emailInput && msgContainer) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const emailValue = emailInput.value.trim();
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    
+                    msgContainer.className = 'newsletter-msg';
+                    msgContainer.style.opacity = '0';
+                    
+                    if (emailValue === '') {
+                        setTimeout(() => {
+                            msgContainer.textContent = 'Please enter an email address.';
+                            msgContainer.classList.add('show-error');
+                        }, 100);
+                        return;
+                    }
+                    
+                    if (!emailRegex.test(emailValue)) {
+                        setTimeout(() => {
+                            msgContainer.textContent = 'Please enter a valid email address (e.g. name@example.com).';
+                            msgContainer.classList.add('show-error');
+                        }, 100);
+                        return;
+                    }
+                    
+                    // Simulated Success response
+                    setTimeout(() => {
+                        msgContainer.textContent = 'Welcome to the Lumiere Circle! Check your inbox for your 15% discount code.';
+                        msgContainer.classList.add('show-success');
+                        emailInput.value = '';
+                    }, 100);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

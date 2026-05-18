@@ -1,6 +1,12 @@
 (function () {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    const savedDir = localStorage.getItem('dir') || 'ltr';
+    let savedTheme = 'light';
+    let savedDir = 'ltr';
+    try {
+        savedTheme = localStorage.getItem('theme') || 'light';
+        savedDir = localStorage.getItem('dir') || 'ltr';
+    } catch (e) {
+        console.warn('LocalStorage is not accessible:', e);
+    }
     document.documentElement.setAttribute('dir', savedDir);
     document.documentElement.classList.add(savedTheme + '-mode');
 

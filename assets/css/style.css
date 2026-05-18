@@ -498,7 +498,7 @@ body.dark-mode .dropdown-content a:hover {
     justify-content: center;
     text-align: center;
     background-size: cover;
-    background-position: center top;
+    background-position: center center;
     background-attachment: fixed;
     position: relative;
     color: var(--white);
@@ -509,6 +509,18 @@ body.dark-mode .dropdown-content a:hover {
 @media (min-width: 769px) {
     .inner-hero .hero-content {
         padding-top: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+    }
+    
+    .inner-hero {
+        min-height: 55vh !important;
+        padding: 100px 0 60px !important;
     }
 }
 
@@ -905,13 +917,21 @@ body.dark-mode .form-control:focus {
 
 .item-img {
     height: 350px;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
+}
+
+@supports (aspect-ratio: 4/5) {
+    .item-img {
+        height: auto;
+    }
 }
 
 .item-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 25%;
     transition: var(--transition);
 }
 

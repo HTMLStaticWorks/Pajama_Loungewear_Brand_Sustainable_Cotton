@@ -37,7 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggles = document.querySelectorAll('.theme-toggle');
     
     // Initial sync
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    let currentTheme = 'light';
+    try {
+        currentTheme = localStorage.getItem('theme') || 'light';
+    } catch (e) {
+        console.warn('LocalStorage access blocked:', e);
+    }
+    
     const icons = document.querySelectorAll('.theme-toggle i');
     icons.forEach(icon => {
         if (currentTheme === 'dark') {
@@ -58,7 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.classList.remove('dark-mode');
             }
             
-            localStorage.setItem('theme', newTheme);
+            try {
+                localStorage.setItem('theme', newTheme);
+            } catch (e) {
+                console.warn('Could not save theme to LocalStorage:', e);
+            }
             
             // Sync Icons
             const allIcons = document.querySelectorAll('.theme-toggle i');
@@ -79,7 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentDir = document.documentElement.dir || 'ltr';
             const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
             document.documentElement.dir = newDir;
-            localStorage.setItem('dir', newDir);
+            try {
+                localStorage.setItem('dir', newDir);
+            } catch (e) {
+                console.warn('Could not save direction to LocalStorage:', e);
+            }
         });
     });
 
