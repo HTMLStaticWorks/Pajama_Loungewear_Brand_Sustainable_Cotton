@@ -705,7 +705,7 @@ section {
 }
 
 .item-card {
-    background: var(--white);\r
+    background: var(--white);
     border-radius: 25px;
     overflow: hidden;
     box-shadow: var(--shadow);
