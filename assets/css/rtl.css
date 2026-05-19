@@ -8,14 +8,14 @@
 
 /* ── RTL Slide-out Nav: slides in from the LEFT ── */
 [dir="rtl"] .nav-menu {
-    right: auto;
-    left: -100%;
+    right: 0;
+    left: auto;
+    transform: translateX(-100%);
     box-shadow: 10px 0 30px rgba(0,0,0,0.1);
 }
 
 [dir="rtl"] .nav-menu.active {
-    right: auto;
-    left: 0;
+    transform: translateX(0);
 }
 
 /* RTL mobile nav actions alignment */
@@ -39,26 +39,26 @@
 
     /* Nav slides in from the LEFT in RTL — override the LTR right-based values */
     [dir="rtl"] .nav-menu {
-        right: auto !important;
-        left: -100% !important;
+        right: 0 !important;
+        left: auto !important;
+        transform: translateX(-100%) !important;
         box-shadow: 10px 0 30px rgba(0,0,0,0.1) !important;
     }
 
     [dir="rtl"] .nav-menu.active {
-        right: auto !important;
-        left: 0 !important;
+        transform: translateX(0) !important;
     }
 }
 
 /* ── RTL at ≤600px (full-width panel) ── */
 @media (max-width: 600px) {
     [dir="rtl"] .nav-menu {
-        left: -100vw !important;
-        right: auto !important;
+        right: 0 !important;
+        left: auto !important;
+        transform: translateX(-100%) !important;
     }
     [dir="rtl"] .nav-menu.active {
-        left: 0 !important;
-        right: auto !important;
+        transform: translateX(0) !important;
     }
 }
 

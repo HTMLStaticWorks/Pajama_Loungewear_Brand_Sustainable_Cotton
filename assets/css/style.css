@@ -1783,7 +1783,7 @@ body.dark-mode .comparison-table td:first-child {
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 300px;
         height: 100vh;
         background: var(--white);
@@ -1794,10 +1794,11 @@ body.dark-mode .comparison-table td:first-child {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        transform: translateX(100%);
     }
 
     body.dark-mode .nav-menu { background: var(--bg-dark); }
-    .nav-menu.active { right: 0; }
+    .nav-menu.active { transform: translateX(0); }
     .nav-menu ul { flex-direction: column; gap: 20px; }
     .mobile-toggle {
         display: flex !important;
@@ -1936,20 +1937,25 @@ body.dark-mode .comparison-table td:first-child {
 @media (max-width: 600px) {
     .nav-menu {
         width: 100vw !important;
-        right: -100vw !important;
+        right: 0 !important;
         padding: 80px 30px 40px !important;
         box-shadow: none !important;
+        transform: translateX(100%) !important;
     }
     .nav-menu.active {
+        transform: translateX(0) !important;
         right: 0 !important;
     }
+    /* RTL: nav slides in from the LEFT — use transform instead of left/right */
     [dir="rtl"] .nav-menu {
-        left: -100vw !important;
-        right: auto !important;
+        right: 0 !important;
+        left: auto !important;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.1) !important;
+        transform: translateX(-100%) !important;
     }
+
     [dir="rtl"] .nav-menu.active {
-        left: 0 !important;
-        right: auto !important;
+        transform: translateX(0) !important;
     }
     /* Larger tap targets for nav links on mobile */
     .nav-menu ul li a {

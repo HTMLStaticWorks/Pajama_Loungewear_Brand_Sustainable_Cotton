@@ -51,7 +51,7 @@ body.dark-mode h5,
 body.dark-mode h6,
 body.dark-mode p,
 body.dark-mode span,
-body.dark-mode a:not(.btn):not(.btn-shop-now),
+body.dark-mode a:not(.btn):not(.btn-shop-now):not(.overlay-btn),
 body.dark-mode li {
     color: #ffffff !important;
 }
@@ -270,7 +270,9 @@ body.dark-mode .overlay-btn {
     color: #111111 !important;
 }
 
-body.dark-mode .overlay-btn i {
+body.dark-mode .overlay-btn i,
+body.dark-mode .img-overlay .overlay-btn i.fas,
+body.dark-mode .img-overlay .overlay-btn i.fab {
     color: #333333 !important;
 }
 
