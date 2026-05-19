@@ -3,13 +3,13 @@
     text-align: right;
 }
 
-/* Flex containers automatically flip in RTL when using row, 
+/* Flex containers automatically flip in RTL when using row,
    so we don't need row-reverse unless we want to UN-flip them. */
 
+/* ── RTL Slide-out Nav: slides in from the LEFT ── */
 [dir="rtl"] .nav-menu {
     right: auto;
     left: -100%;
-    /* Box shadow flips: shadow appears on the right side */
     box-shadow: 10px 0 30px rgba(0,0,0,0.1);
 }
 
@@ -23,15 +23,42 @@
     justify-content: flex-end;
 }
 
-/* In RTL at ≤1200px: keep header-inner as row so logo stays right,
-   hamburger stays left (natural RTL). Reverse header-actions so
-   theme-toggle appears before hamburger (left-to-right reading in panel). */
+/* ── RTL at ≤1200px (tablet + 1024px + mobile) ── */
 @media (max-width: 1200px) {
+    /* Keep header-inner as natural RTL row:
+       logo on the RIGHT, hamburger on the LEFT */
     [dir="rtl"] .header-inner {
         flex-direction: row;
     }
+
+    /* Keep header-actions as natural RTL row — hamburger is always last child
+       so it sits at the visual left in RTL without row-reverse */
     [dir="rtl"] .header-actions {
-        flex-direction: row-reverse;
+        flex-direction: row;
+    }
+
+    /* Nav slides in from the LEFT in RTL — override the LTR right-based values */
+    [dir="rtl"] .nav-menu {
+        right: auto !important;
+        left: -100% !important;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.1) !important;
+    }
+
+    [dir="rtl"] .nav-menu.active {
+        right: auto !important;
+        left: 0 !important;
+    }
+}
+
+/* ── RTL at ≤600px (full-width panel) ── */
+@media (max-width: 600px) {
+    [dir="rtl"] .nav-menu {
+        left: -100vw !important;
+        right: auto !important;
+    }
+    [dir="rtl"] .nav-menu.active {
+        left: 0 !important;
+        right: auto !important;
     }
 }
 

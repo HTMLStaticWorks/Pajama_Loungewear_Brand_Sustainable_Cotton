@@ -1812,7 +1812,7 @@ body.dark-mode .comparison-table td:first-child {
     }
 
     .header-actions .theme-toggle {
-        display: flex;
+        display: none !important;
     }
 
     .mobile-nav-actions {

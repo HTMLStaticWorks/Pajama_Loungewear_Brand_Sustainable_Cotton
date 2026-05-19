@@ -263,6 +263,26 @@ body.dark-mode .faq-accordion-item.active .faq-accordion-icon {
     color: var(--white) !important;
 }
 
+/* Best Sellers Quick View Overlay Button — Dark Mode Fix */
+/* Keeps text & icon visible (dark on white pill) when card is hovered in dark mode */
+body.dark-mode .overlay-btn {
+    background: #ffffff !important;
+    color: #111111 !important;
+}
+
+body.dark-mode .overlay-btn i {
+    color: #333333 !important;
+}
+
+body.dark-mode .overlay-btn:hover {
+    background: var(--primary) !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .overlay-btn:hover i {
+    color: #ffffff !important;
+}
+
 /* Shop Now Button Dark Mode Overrides */
 body.dark-mode .btn-shop-now {
     background-color: var(--primary) !important;

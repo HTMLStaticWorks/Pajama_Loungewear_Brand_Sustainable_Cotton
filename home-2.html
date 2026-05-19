@@ -122,13 +122,21 @@
         }
         
         body.dark-mode .faq-accordion-icon {
-            background: rgba(255, 255, 255, 0.05) !important;
-            color: var(--primary) !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .faq-accordion-icon i {
+            color: #ffffff !important;
         }
 
         body.dark-mode .faq-accordion-item.active .faq-accordion-icon {
             background: var(--primary) !important;
-            color: var(--white) !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-mode .faq-accordion-item.active .faq-accordion-icon i {
+            color: #ffffff !important;
         }
 
         .hero-2-content {
@@ -630,7 +638,7 @@
 
         .plan-features-list li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             font-size: 0.95rem;
             color: var(--text-dark);
@@ -639,6 +647,8 @@
         .plan-features-list li i {
             color: var(--primary);
             font-size: 0.95rem;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
         .pricing-card .btn {
@@ -1170,9 +1180,33 @@
                 padding: 60px 40px;
             }
 
-            .plan-features-list li {
+            .plan-name {
+                text-align: center;
+            }
+
+            .plan-price-row {
                 justify-content: center;
+                text-align: center;
+            }
+
+            .plan-features-list {
+                align-items: flex-start;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .plan-features-list li {
+                justify-content: flex-start;
+                align-items: flex-start !important;
                 text-align: start;
+                max-width: 280px;
+            }
+
+            .plan-features-list li i {
+                align-self: flex-start !important;
+                flex-shrink: 0 !important;
+                margin-top: 5px !important;
             }
         }
 
@@ -1256,28 +1290,44 @@
         }
 
         @media (max-width: 768px) {
+            /* All card grids → single column on mobile */
             .services-grid {
-                grid-template-columns: repeat(2, 1fr);
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 20px;
             }
-            
+
+            .services-grid .service-card {
+                width: 100% !important;
+            }
+
+            .why-us-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
             .process-timeline {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
+
             .process-timeline::before {
                 display: none;
             }
 
-        }
-
-        @media (max-width: 576px) {
-            .services-grid {
-                grid-template-columns: 1fr;
+            .testimonial-grid-home2 {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
             }
-            
-            .why-us-grid {
-                grid-template-columns: 1fr;
+
+            .team-grid-home2 {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .blog-grid-home2 {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
             }
 
             .hero-stats-row {
@@ -1289,7 +1339,10 @@
             .about-key-points {
                 grid-template-columns: 1fr;
             }
-            
+        }
+
+
+        @media (max-width: 576px) {
             .newsletter-input-group {
                 flex-direction: column;
                 background: transparent;
@@ -1666,10 +1719,10 @@
                             <span class="plan-period">/ month</span>
                         </div>
                         <ul class="plan-features-list">
-                            <li><i class="fas fa-check-circle"></i> 1 Organic Cotton Pajama Set</li>
-                            <li><i class="fas fa-check-circle"></i> Reusable Cotton Travel Pouch</li>
-                            <li><i class="fas fa-check-circle"></i> Sizing & Fit Guidance Booklet</li>
-                            <li><i class="fas fa-check-circle"></i> Free Carbon-Neutral Shipping</li>
+                            <li><i class="fas fa-check-circle"></i><span>1 Organic Cotton Pajama Set</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Reusable Cotton Travel Pouch</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Sizing &amp; Fit Guidance Booklet</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Free Carbon-Neutral Shipping</span></li>
                         </ul>
                         <a href="pages/pricing.html" class="btn btn-outline-primary">Join Essential Club</a>
                     </div>
@@ -1683,11 +1736,11 @@
                             <span class="plan-period">/ month</span>
                         </div>
                         <ul class="plan-features-list">
-                            <li><i class="fas fa-check-circle"></i> 1 Premium Sleepwear Set</li>
-                            <li><i class="fas fa-check-circle"></i> 1 Hand-Tailored Relax Robe</li>
-                            <li><i class="fas fa-check-circle"></i> Coordinated Cotton Sleep Mask</li>
-                            <li><i class="fas fa-check-circle"></i> Priority Access to Limited Runs</li>
-                            <li><i class="fas fa-check-circle"></i> Complimentary Sizing Customization</li>
+                            <li><i class="fas fa-check-circle"></i><span>1 Premium Sleepwear Set</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>1 Hand-Tailored Relax Robe</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Coordinated Cotton Sleep Mask</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Priority Access to Limited Runs</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Complimentary Sizing Customization</span></li>
                         </ul>
                         <a href="pages/pricing.html" class="btn btn-primary">Join Luxury Suite</a>
                     </div>
@@ -1700,11 +1753,11 @@
                             <span class="plan-period">/ month</span>
                         </div>
                         <ul class="plan-features-list">
-                            <li><i class="fas fa-check-circle"></i> 1 Silk-Modal Premium Sleep Set</li>
-                            <li><i class="fas fa-check-circle"></i> 1 Elegant French Lace Robe</li>
-                            <li><i class="fas fa-check-circle"></i> Custom-tailored monogramming</li>
-                            <li><i class="fas fa-check-circle"></i> Organic cotton sheets accessory</li>
-                            <li><i class="fas fa-check-circle"></i> 10% Lifetime Shop Discount</li>
+                            <li><i class="fas fa-check-circle"></i><span>1 Silk-Modal Premium Sleep Set</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>1 Elegant French Lace Robe</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Custom-tailored monogramming</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Organic cotton sheets accessory</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>10% Lifetime Shop Discount</span></li>
                         </ul>
                         <a href="pages/pricing.html" class="btn btn-outline-primary">Join Royal Club</a>
                     </div>
