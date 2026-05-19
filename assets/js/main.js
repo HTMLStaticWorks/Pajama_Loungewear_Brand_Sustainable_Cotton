@@ -14,24 +14,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.nav-menu');
     const menuIcon = mobileToggle?.querySelector('i');
 
+    // Create and inject overlay backdrop dynamically
+    const navOverlay = document.createElement('div');
+    navOverlay.className = 'nav-overlay';
+    document.body.appendChild(navOverlay);
+
+    function openNav() {
+        navMenu.classList.add('active');
+        navOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // prevent background scroll
+        if (menuIcon) menuIcon.classList.replace('fa-bars', 'fa-times');
+    }
+
+    function closeNav() {
+        navMenu.classList.remove('active');
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        if (menuIcon) menuIcon.classList.replace('fa-times', 'fa-bars');
+    }
+
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            if (navMenu.classList.contains('active')) {
-                menuIcon.classList.replace('fa-bars', 'fa-times');
-            } else {
-                menuIcon.classList.replace('fa-times', 'fa-bars');
-            }
+            navMenu.classList.contains('active') ? closeNav() : openNav();
         });
 
-        // Close menu on link click
+        // Close menu on nav link click
         navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuIcon.classList.replace('fa-times', 'fa-bars');
-            });
+            link.addEventListener('click', closeNav);
+        });
+
+        // Close menu when tapping the overlay backdrop
+        navOverlay.addEventListener('click', closeNav);
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeNav();
         });
     }
+
 
     // 3. Theme Toggle (Light/Dark)
     const themeToggles = document.querySelectorAll('.theme-toggle');

@@ -218,6 +218,7 @@
         .hero-trust-badges {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 12px;
             margin-top: 30px;
         }
@@ -287,7 +288,11 @@
         .service-card:hover .service-icon-wrapper {
             background: var(--primary);
             color: var(--white);
-            transform: rotateY(180deg);
+            transform: rotate(360deg);
+        }
+
+        .service-card:hover .service-icon-wrapper i {
+            color: var(--white) !important;
         }
 
         .service-card h4 {
@@ -464,18 +469,19 @@
         .process-timeline::before {
             content: '';
             position: absolute;
-            top: 55px;
+            top: 22px; /* Centered vertically with the 44px step circle */
             left: 12%;
             right: 12%;
-            height: 2px;
-            background: dashed var(--primary);
-            opacity: 0.25;
+            height: 0;
+            border-top: 2px dashed var(--primary);
+            opacity: 0.7;
             z-index: 1;
         }
 
         body.dark-mode .process-timeline::before {
-            background: dashed rgba(255, 255, 255, 0.15);
-            opacity: 0.5;
+            border-top: 2px dashed rgba(255, 255, 255, 0.3);
+            background: none;
+            opacity: 0.8;
         }
 
         .process-step {
@@ -572,8 +578,9 @@
 
         .pricing-badge-popular {
             position: absolute;
-            top: 22px;
-            right: 30px;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background: var(--primary);
             color: var(--white);
             font-size: 0.72rem;
@@ -582,6 +589,7 @@
             padding: 6px 14px;
             border-radius: 50px;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         .plan-name {
@@ -1145,7 +1153,13 @@
         /* Responsive Breakpoints Rules */
         @media (max-width: 1200px) {
             .services-grid {
-                grid-template-columns: repeat(3, 1fr);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            .services-grid .service-card {
+                width: calc(33.333% - 14px);
             }
             
             .why-us-grid {
@@ -1154,6 +1168,11 @@
 
             .hero-2-content {
                 padding: 60px 40px;
+            }
+
+            .plan-features-list li {
+                justify-content: center;
+                text-align: start;
             }
         }
 
@@ -1249,6 +1268,7 @@
             .process-timeline::before {
                 display: none;
             }
+
         }
 
         @media (max-width: 576px) {
@@ -1310,6 +1330,22 @@
                 max-width: 100%;
                 border-width: 4px;
             }
+
+            .contact-banner-home2 {
+                padding: 40px 20px;
+            }
+
+            .contact-banner-actions {
+                flex-direction: column;
+                width: 100%;
+                gap: 12px;
+            }
+
+            .contact-banner-actions .btn {
+                width: 100%;
+                text-align: center;
+                white-space: nowrap;
+            }
         }
 
         /* Directional RTL Rules for Custom Spacing */
@@ -1338,15 +1374,15 @@
 
         [dir="rtl"] .pricing-badge-popular {
             right: auto;
-            left: 30px;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         [dir="rtl"] .hero-2-content {
             text-align: right;
         }
 
-        [dir="rtl"] .hero-btns,
-        [dir="rtl"] .hero-trust-badges {
+        [dir="rtl"] .hero-btns {
             justify-content: flex-start;
         }
 

@@ -51,7 +51,7 @@ body.dark-mode h5,
 body.dark-mode h6,
 body.dark-mode p,
 body.dark-mode span,
-body.dark-mode a:not(.btn),
+body.dark-mode a:not(.btn):not(.btn-shop-now),
 body.dark-mode li {
     color: #ffffff !important;
 }
@@ -195,7 +195,10 @@ body.dark-mode i.fab {
 body.dark-mode .btn-primary i,
 body.dark-mode .btn-login:hover i,
 body.dark-mode #backToTop i,
-body.dark-mode .social-icon i {
+body.dark-mode .social-icon i,
+body.dark-mode .social-btn-premium:hover i,
+body.dark-mode .service-card:hover .service-icon-wrapper i,
+body.dark-mode .contact-info-card:hover i {
     color: #ffffff !important;
 }
 
@@ -258,4 +261,26 @@ body.dark-mode .faq-accordion-icon {
 body.dark-mode .faq-accordion-item.active .faq-accordion-icon {
     background: var(--primary) !important;
     color: var(--white) !important;
+}
+
+/* Shop Now Button Dark Mode Overrides */
+body.dark-mode .btn-shop-now {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .btn-shop-now i {
+    color: #ffffff !important;
+}
+
+body.dark-mode .btn-shop-now:hover {
+    background-color: var(--white) !important;
+    color: #000000 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark-mode .btn-shop-now:hover i {
+    color: #000000 !important;
+    transform: translateX(4px);
 }

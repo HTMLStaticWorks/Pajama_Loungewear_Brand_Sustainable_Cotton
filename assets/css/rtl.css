@@ -9,11 +9,30 @@
 [dir="rtl"] .nav-menu {
     right: auto;
     left: -100%;
+    /* Box shadow flips: shadow appears on the right side */
+    box-shadow: 10px 0 30px rgba(0,0,0,0.1);
 }
 
 [dir="rtl"] .nav-menu.active {
     right: auto;
     left: 0;
+}
+
+/* RTL mobile nav actions alignment */
+[dir="rtl"] .mobile-nav-actions .action-buttons {
+    justify-content: flex-end;
+}
+
+/* In RTL at ≤1200px: keep header-inner as row so logo stays right,
+   hamburger stays left (natural RTL). Reverse header-actions so
+   theme-toggle appears before hamburger (left-to-right reading in panel). */
+@media (max-width: 1200px) {
+    [dir="rtl"] .header-inner {
+        flex-direction: row;
+    }
+    [dir="rtl"] .header-actions {
+        flex-direction: row-reverse;
+    }
 }
 
 [dir="rtl"] .reveal-left {
