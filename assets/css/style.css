@@ -1948,8 +1948,8 @@ body.dark-mode .comparison-table td:first-child {
     }
     /* RTL: nav slides in from the LEFT — use transform instead of left/right */
     [dir="rtl"] .nav-menu {
-        right: 0 !important;
-        left: auto !important;
+        right: auto !important;
+        left: 0 !important;
         box-shadow: 10px 0 30px rgba(0,0,0,0.1) !important;
         transform: translateX(-100%) !important;
     }
